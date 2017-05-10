@@ -16,8 +16,8 @@ html, body {
   max-height: 100%;
   width: 100vw;
   top: 0; bottom: 0;
-  left: 0
-  padding: auto;
+  left: 0;
+  padding: auto 0;
 }
 #preview *:not(canvas) {
   z-index: 900;
