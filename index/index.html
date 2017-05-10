@@ -2,13 +2,8 @@
 <html>
   <head>
     <title>JpegCamera Demo</title>
-    <script type="text/javascript"
-      src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
-    </script>
-    <script type="text/javascript"
-      src="../dist/jpeg_camera_with_dependencies.min.js"></script>
-    <script type="text/javascript" src="demo.js"></script>
-    <link href="demo.css" media="all" rel="stylesheet" type="text/css" /></link>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" defer></script>
+    <script src="../dist/jpeg_camera_with_dependencies.min.js" defer></script>
   </head>
   <body>
     <p>
@@ -42,5 +37,7 @@
     <img src="loader.gif" id="loader">
     <div id="upload_status"></div>
     <div id="upload_result"></div>
+    <script src="demo.js" async defer></script>
+    <link href="demo.css" media="all" rel="stylesheet" type="text/css" async lazyload />
   </body>
 </html>
