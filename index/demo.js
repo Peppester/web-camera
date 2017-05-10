@@ -10,7 +10,7 @@ $(function() {
 			//setTimeout(function() {camera.get_stats(update_stream_stats);}, 1000);
 		};
 
-		function captureVideo(video) {
+		var captureVideo = function(video) {
 			var canvas = document.createElement("canvas");
 			canvas.width = video.videoWidth;
 			canvas.height = video.videoHeight;
@@ -18,11 +18,13 @@ $(function() {
 			canvasContext.drawImage(video, 0, 0);
 			return canvas.toDataURL('image/png');
 		}
-
+		
+		var $preview_img = $('#preview_img')[0];
+		
 		var take_snapshots = function(count) {
 			var snapshot = camera.capture();
-			$('#img_preview')[0].src = captureVideo(snapshot.camera.video);
-			$('#img_preview')[0].className = "";
+			$preview_img.src = captureVideo(snapshot.camera.video);
+			$preview_img.className = "";
 			console.log(snapshot);
 			if (JpegCamera.canvas_supported()) {
 				snapshot.get_canvas(add_snapshot);
