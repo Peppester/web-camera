@@ -11,7 +11,7 @@ html, body {
 }
 
 #preview canvas {
-  position: absolute;
+  position: fixed;
   max-width: 100%;
   max-height: 100%;
   width: 100vw;
@@ -29,7 +29,7 @@ html, body {
   background-color: rbga(0,0,0,0.5)
 }
 #preview {
-  position: absolute;
+  position: fixed;
   z-index: 800;
   bottom: 0;
   left: 0;
