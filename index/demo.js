@@ -9,21 +9,18 @@ $(function() {
 
 			//setTimeout(function() {camera.get_stats(update_stream_stats);}, 1000);
 		};
-
-		var captureVideo = function(video) {
-			var canvas = document.createElement("canvas");
-			canvas.width = video.videoWidth;
-			canvas.height = video.videoHeight;
-			var canvasContext = canvas.getContext("2d");
-			canvasContext.drawImage(video, 0, 0);
-			return canvas.toDataURL('image/png');
-		}
 		
 		var $preview_img = $('#preview_img')[0];
 		
 		var take_snapshots = function(count) {
+			console.log( camera );
 			var snapshot = camera.capture();
-			$preview_img.src = captureVideo(snapshot.camera.video);
+			var canvas = document.createElement("canvas");
+			canvas.width = snapshot.camera.video.videoWidth;
+			canvas.height = snapshot.camera.video.videoHeight;
+			var canvasContext = canvas.getContext("2d");
+			canvasContext.drawImage(snapshot.camera.video, 0, 0);
+			/*$preview_img.src = canvas.toDataURL('image/png');*/
 			$preview_img.className = "";
 			console.log(snapshot);
 			if (JpegCamera.canvas_supported()) {
