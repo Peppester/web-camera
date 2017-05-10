@@ -10,20 +10,32 @@ $(function() {
 			//setTimeout(function() {camera.get_stats(update_stream_stats);}, 1000);
 		};
 		
-		var $preview_img = $('#preview_img')[0];
+		var $preview_box = $('#preview')[0],
+			$preview_canvas = $('#preview_img')[0],
+			$preview_cContext = $preview_canvas.getContext("2d"),
+			$download_button = $('#download_picture')[0],
+			$cancel_button = $('#cancel_download')[0],
+			$download_link = $('#download_link')[0];
 		
 		var take_snapshots = function(count) {
-			console.log( camera );
-			var snapshot = camera.capture();
-			var canvas = document.createElement("canvas");
-			canvas.width = snapshot.camera.video.videoWidth;
-			canvas.height = snapshot.camera.video.videoHeight;
-			var canvasContext = canvas.getContext("2d");
-			canvasContext.drawImage(snapshot.camera.video, 0, 0);
-			/*$preview_img.src = canvas.toDataURL('image/png');*/
-			$preview_img.className = "";
-			console.log(snapshot);
-			if (JpegCamera.canvas_supported()) {
+			$preview_canvas.width = camera.video.videoWidth;
+			$preview_canvas.height = camera.video.videoHeight;
+			$preview_cContext.drawImage(camera.video, 0, 0);
+			/*$preview_canvas.src = $preview_canvas.toDataURL('image/png');*/
+			$preview_box.className = "";
+			$download_button.onclick = function(){
+				$download_link.href = $preview_canvas.toDataURL('image/jpeg');
+				$download_link.click();
+				$preview_box.className = "hidden";
+				// free up memory:
+				$preview_cContext.clearRect(0, 0, $preview_canvas.width, $preview_canvas.height);
+			}
+			$cancel_button.onclick = function(){
+				$preview_box.className = "hidden";
+				// free up memory:
+				$preview_cContext.clearRect(0, 0, $preview_canvas.width, $preview_canvas.height);
+			}
+			/*if (JpegCamera.canvas_supported()) {
 				snapshot.get_canvas(add_snapshot);
 			}
 			else {
@@ -36,7 +48,7 @@ $(function() {
 
 			if (count > 1) {
 				setTimeout(function() {take_snapshots(count - 1);}, 500);
-			}
+			}*/
 		};
 
 		var add_snapshot = function(element) {
@@ -153,7 +165,11 @@ $(function() {
 
 			$("#camera_info").html(
 				"Camera resolution: " + info.video_width + "x" + info.video_height);
-
+			
+			if (Math.max(info.video_width,info.video_height)<1120 || Math.min(info.video_width,info.video_height)<630){
+				alert("Your deveice's camera has a resolution of " + info.video_width + "x" + info.video_height + ". The images you take with this camera will not count because they are too low resolution.");
+			}
+			
 			//this.get_stats(update_stream_stats);
 		});
 	}
