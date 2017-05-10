@@ -6,6 +6,7 @@
     <script src="../dist/jpeg_camera_with_dependencies.min.js" defer></script>
   </head>
   <body>
+    <img id="preview_img" class="hidden" src="" />
     <div id="camera_info" style="display:none"></div>
     <div id="stream_stats" style="display:none"></div>
 
@@ -19,10 +20,10 @@
       </div>
     </div><br>
 
-    <button id="take_snapshots">Take more snapshots</button>
+    <button id="take_snapshots">Take picture</button>
     <button id="show_stream">Show stream</button><br>
 
-    <div id="snapshots"></div>
+    <div id="snapshots" style="display:none"></div>
 
     <button id="discard_snapshot">Discard snapshot</button>
     <button id="upload_snapshot">Upload to URL</button><br>
