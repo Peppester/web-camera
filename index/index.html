@@ -4,12 +4,12 @@
     <title>JpegCamera Demo</title>
   </head>
   <body>
-    <a id="download_link" href="" download="picture.png" style="display:none">download</a>
+    <a id="download_link" href="" download="picture.jpg" style="display:none">download</a>
     <div id="preview" class="hidden">
       <canvas id="preview_canvas"></canvas>
       <button id="download_picture">Download Picture</button>
       <button id="cancel_download">Discard Picture</button>
-    <div>
+    </div>
     <div id="camera_info" style="display:none"></div>
     <div id="stream_stats" style="display:none"></div>
 
@@ -35,9 +35,9 @@
     <img src="loader.gif" id="loader">
     <div id="upload_status"></div>
     <div id="upload_result"></div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="../dist/jpeg_camera_with_dependencies.min.js"></script>
-    <script src="demo.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" defer></script>
+    <script src="../dist/jpeg_camera_with_dependencies.min.js" defer></script>
+    <script src="demo.js" defer></script>
     <link href="demo.css" media="all" rel="stylesheet" type="text/css" async lazyload />
   </body>
 </html>
