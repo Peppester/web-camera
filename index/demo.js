@@ -12,7 +12,7 @@ $(function() {
 
     var take_snapshots = function(count) {
       var snapshot = camera.capture();
-console.log(snapshot);
+console.log(snapshot, snapshot.get_image_data());
       if (JpegCamera.canvas_supported()) {
         snapshot.get_canvas(add_snapshot);
       }
