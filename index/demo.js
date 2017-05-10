@@ -144,7 +144,7 @@ $(function() {
       $("#camera_info").html(
         "Camera resolution: " + info.video_width + "x" + info.video_height);
 
-      this.get_stats(update_stream_stats);
+      //this.get_stats(update_stream_stats);
     });
   }
 });
