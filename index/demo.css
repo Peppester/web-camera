@@ -30,7 +30,6 @@ html, body {
   width: 100vw;
   height: 100vh;
   position: fixed;
-  display: flex;
   z-index: 800;
   bottom: 0;
   left: 0;
