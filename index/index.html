@@ -2,8 +2,6 @@
 <html>
   <head>
     <title>JpegCamera Demo</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" defer></script>
-    <script src="../dist/jpeg_camera_with_dependencies.min.js" defer></script>
   </head>
   <body>
     <a id="download_link" href="" download="picture.png" style="display:none">download</a>
@@ -17,28 +15,29 @@
 
     <div id="camera">
       <div class="placeholder">
-        Your browser does not support camera access.<br>
-        We recommend
-        <a href="https://www.google.com/chrome/" target="_blank">Chrome</a>
-        &mdash; modern, secure, fast browser from Google.<br>
+        Your browser does not support camera access.<br />
+        We recommend <a href="https://www.google.com/chrome/" target="_blank">Chrome</a>
+        &mdash; modern, secure, fast browser from Google.<br />
         It's free.
       </div>
-    </div><br>
+    </div><br />
 
     <button id="take_snapshots">Take picture</button>
-    <button id="show_stream">Show stream</button><br>
+    <button id="show_stream">Show stream</button><br />
 
     <div id="snapshots" style="display:none"></div>
 
     <button id="discard_snapshot">Discard snapshot</button>
-    <button id="upload_snapshot">Upload to URL</button><br>
+    <button id="upload_snapshot">Upload to URL</button><br />
 
-    <input type="text" id="api_url" placeholder="https://example.com/upload"><br>
+    <input type="text" id="api_url" placeholder="https://example.com/upload" /><br />
 
     <img src="loader.gif" id="loader">
     <div id="upload_status"></div>
     <div id="upload_result"></div>
-    <script src="demo.js" async defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="../dist/jpeg_camera_with_dependencies.min.js"></script>
+    <script src="demo.js"></script>
     <link href="demo.css" media="all" rel="stylesheet" type="text/css" async lazyload />
   </body>
 </html>
