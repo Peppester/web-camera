@@ -8,7 +8,7 @@ html, body {
   width: 100%;
 }
 
-#preview_img {
+#preview canvas {
   position: fixed;
   max-width: 100%;
   max-height: 100%;
@@ -16,13 +16,21 @@ html, body {
   top: 0; bottom: 0;
   left: 0;
   margin: auto;
-  z-index: 999;
 }
-#preview_img.hidden {
+#preview.hidden {
   display: none;
 }
+#preview {
+  position: fixed;
+  z-index: 999;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
 
-button, input, #loader {
+
+button:not(#preview *), input, #loader {
   display: none;
 }
 
