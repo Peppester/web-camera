@@ -7,7 +7,7 @@ $(function() {
         "Mean luminance = " + stats.mean +
         "; Standard Deviation = " + stats.std);
 
-      setTimeout(function() {camera.get_stats(update_stream_stats);}, 1000);
+      //setTimeout(function() {camera.get_stats(update_stream_stats);}, 1000);
     };
 
     var take_snapshots = function(count) {
