@@ -160,7 +160,7 @@ $(function() {
 			swf_url: "../dist/jpeg_camera.swf"
 		}
 
-		camera = new JpegCamera("#camera", options).ready(function(info) {
+		camera = new JpegCamera($("#camera"), options).ready(function(info) {
 			$("#take_snapshots").show();
 
 			$("#camera_info").html(
