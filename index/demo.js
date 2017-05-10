@@ -11,7 +11,7 @@ $(function() {
 		};
 		
 		var $preview_box = $('#preview')[0],
-			$preview_canvas = $('#preview_img')[0],
+			$preview_canvas = $('#preview_canvas')[0],
 			$preview_cContext = $preview_canvas.getContext("2d"),
 			$download_button = $('#download_picture')[0],
 			$cancel_button = $('#cancel_download')[0],
