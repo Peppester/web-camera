@@ -111,11 +111,12 @@ button, #upload_status, #upload_result, #loader {
   position: static;
   border: 1px solid rgba(0,0,0,0.5);
   border-radius: .5em;
+  background-color: rgba(0,0,0,0.2);
 }
 .bottombar>div>* {
   margin: 0 auto;
 }
-#camera>div:last-child, #camera>div:first-child {
+#camera>div>div:last-child, #camera>div>div:first-child {
   visibility: hidden;
   display: none;
 }
