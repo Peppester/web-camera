@@ -182,16 +182,17 @@ $(function() {
 			);
 			
 			var brightness="100", sepia="0", contrast="100", saturation="100", updateFilters = function(){
-				$preview_cContext.filter = $video_element[0].style.filter = 
-					' brightness(' + brightness + '%)' +
-					' sepia(' + sepia + '%)' +
-					' contrast(' + contrast + '%)' +
-					' saturation(' + saturation + '%)';
+				console.log($video_element,brightness, sepia, contrast, saturation, updateFilters );
+				$preview_cContext.filter = $video_element[0].style.filter =
+					'brightness(' + brightness + '%) ' +
+					'sepia(' + sepia + '%) ' +
+					'contrast(' + contrast + '%) ' +
+					'saturation(' + saturation + '%)';
 			};
-			$('#brightness').on('input', function(){ brightness = this.value; updateFilters(); } );
-			$('#sepia').on('input', function(){ sepia = this.value; updateFilters(); } );
-			$('#contrast').on('input', function(){ contrast = this.value; updateFilters(); } );
-			$('#saturation').on('input', function(){ saturation = this.value; updateFilters(); } );
+			$('#brightness').on('input', function(){ brightness = this.value.toString(); updateFilters(); } );
+			$('#sepia').on('input', function(){ sepia = this.value.toString(); updateFilters(); } );
+			$('#contrast').on('input', function(){ contrast = this.value.toString(); updateFilters(); } );
+			$('#saturation').on('input', function(){ saturation = this.value.toString(); updateFilters(); } );
 			
 			
 			if (Math.max(info.video_width,info.video_height)<1120 || Math.min(info.video_width,info.video_height)<630){
