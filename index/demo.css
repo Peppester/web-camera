@@ -25,6 +25,9 @@ html, body {
   margin: auto;
   z-index: -1;
 }
+video {
+  transform: scaleX(-1)
+}
 #preview *:not(canvas) {
   z-index: 300;
 }
