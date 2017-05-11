@@ -17,6 +17,12 @@ $(function() {
 			$cancel_button = $('#cancel_download')[0],
 			$download_link = $('#download_link')[0];
 		
+		if (!('filter' in $preview_cContext)){
+			var message='You need to upgrade to eithor Chrome/Firefox for this webpage to work!';
+			alert(message);
+			console.error(message);
+		}
+		
 		var take_snapshots = function(count) {
 			$preview_canvas.width = camera.video.videoWidth;
 			$preview_canvas.height = camera.video.videoHeight;
@@ -161,18 +167,30 @@ $(function() {
 		}
 
 		camera = new JpegCamera("#camera", options).ready(function(info) {
-			$("video").removeAttr('style');
+			var $video_element = $('video');
+			$video_element.removeAttr('style');
 			$("#take_snapshots").show();
 
 			$("#camera_info").html(
 				"Camera resolution: " + info.video_width + "x" + info.video_height
 			);
 			
+			var brightness="100", sepia="0", contrast="100", saturation="100", updateFilters = function(){
+				$preview_cContext.filter = $video_element.style.filter = 
+					' brightness(' + brightness + '%)' +
+					' sepia(' + sepia + '%)' +
+					' contrast(' + contrast + '%)' +
+					' saturation(' + saturation + '%)';
+			};
+			$('#brightness').on('input', function(){ brightness = this.value; updateFilters(); }
+			$('#sepia').on('input', function(){ sepia = this.value; updateFilters(); }
+			$('#contrast').on('input', function(){ contrast = this.value; updateFilters(); }
+			$('#saturation').on('input', function(){ saturation = this.value; updateFilters(); }
+			
+			
 			if (Math.max(info.video_width,info.video_height)<1120 || Math.min(info.video_width,info.video_height)<630){
 				alert("Your deveice's camera has a resolution of " + info.video_width + "x" + info.video_height + ". The images you take with this camera will not count because they are too low resolution.");
 			}
-			
-			//this.get_stats(update_stream_stats);
 		});
 	}
 });
