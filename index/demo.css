@@ -10,6 +10,10 @@ html, body {
   position: relative;
 }
 
+#preview button {
+  z-index: 999;
+}
+
 #preview canvas {
   position: fixed;
   max-width: 100%;
