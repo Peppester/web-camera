@@ -52,7 +52,7 @@ input {
 
 #camera {
   display: inline-block;
-  background-color: #eee;
+  background-color: transparent;
   width: 250px;
   height: 300px;
   margin: 0.5em;
@@ -124,7 +124,4 @@ button, #upload_status, #upload_result, #loader {
 #camera>div>div:last-child, #camera>div>div:first-child {
   visibility: hidden;
   display: none;
-}
-#camera>div>div:nth-child(2) {
-  height: 0; width: 0;
 }
