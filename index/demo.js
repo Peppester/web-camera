@@ -188,10 +188,10 @@ $(function() {
 					' contrast(' + contrast + '%)' +
 					' saturation(' + saturation + '%)';
 			};
-			$('#brightness').on('input', function(){ brightness = this.value; updateFilters(); }
-			$('#sepia').on('input', function(){ sepia = this.value; updateFilters(); }
-			$('#contrast').on('input', function(){ contrast = this.value; updateFilters(); }
-			$('#saturation').on('input', function(){ saturation = this.value; updateFilters(); }
+			$('#brightness').on('input', function(){ brightness = this.value; updateFilters(); } );
+			$('#sepia').on('input', function(){ sepia = this.value; updateFilters(); } );
+			$('#contrast').on('input', function(){ contrast = this.value; updateFilters(); } );
+			$('#saturation').on('input', function(){ saturation = this.value; updateFilters(); } );
 			
 			
 			if (Math.max(info.video_width,info.video_height)<1120 || Math.min(info.video_width,info.video_height)<630){
