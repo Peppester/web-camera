@@ -116,6 +116,9 @@ button, #upload_status, #upload_result, #loader {
 .bottombar>div>* {
   margin: 0 auto;
 }
+.bottombar>div>input {
+  outline: 1px solid rgba(0,0,0,.4)
+}
 #camera>div>div:last-child, #camera>div>div:first-child {
   visibility: hidden;
   display: none;
