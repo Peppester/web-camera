@@ -182,7 +182,7 @@ $(function() {
 			);
 			
 			var brightness="100", sepia="0", contrast="100", saturation="100", updateFilters = function(){
-				$preview_cContext.filter = $video_element.style.filter = 
+				$preview_cContext.filter = $video_element[0].style.filter = 
 					' brightness(' + brightness + '%)' +
 					' sepia(' + sepia + '%)' +
 					' contrast(' + contrast + '%)' +
