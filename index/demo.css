@@ -93,3 +93,10 @@ input {
 button, #upload_status, #upload_result, #loader {
   margin: 0.5em;
 }
+
+#take_snapshot {
+  position: fixed;
+  bottom: 1em;
+  border-width: 50% / 50%;
+  margin: 0 auto;
+}
