@@ -115,7 +115,7 @@ button, #upload_status, #upload_result, #loader {
 .bottombar>div>* {
   margin: 0 auto;
 }
-#camera:last-child, #camera:first-child {
+#camera>div:last-child, #camera>div:first-child {
   visibility: hidden;
   display: none;
 }
