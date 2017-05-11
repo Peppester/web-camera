@@ -66,9 +66,7 @@ input {
   height: 150px;
   margin: 0.5em 0;
   padding: 3px;
-
   border: 1px solid #aaa;
-
   white-space: nowrap;
   overflow-x: auto;
   overflow-y: hidden;
@@ -97,7 +95,6 @@ button, #upload_status, #upload_result, #loader {
   position: fixed;
   white-space: nowrap;
   bottom: 0.25em;
-  border: 1px solid rgba(0,0,0,0.5);
   font-size: 125%;
   left: 50%;
   transform: translateX(-50%);
