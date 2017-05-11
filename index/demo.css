@@ -102,9 +102,10 @@ button, #upload_status, #upload_result, #loader {
   z-index: 900;
 }
 .bottombar>* {
+  color: white !important;
   padding: 0.125em;
   margin: 0.125em;
-  display: inline-block !important;
+  display: inline-block;
   position: static;
   border: 1px solid rgba(0,0,0,0.5);
   border-radius: .5em;
