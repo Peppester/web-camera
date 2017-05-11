@@ -80,7 +80,6 @@ input {
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   -o-box-sizing: border-box;
-
   height: 100%;
   margin-left: 3px;
   border: 3px solid transparent;
@@ -118,6 +117,10 @@ button, #upload_status, #upload_result, #loader {
 }
 .bottombar>div>input {
   outline: 1px solid rgba(0,0,0,.4)
+}
+.bottombar>button {
+  margin-bottom: 50%;
+  transform: translateY(50%);
 }
 #camera>div>div:last-child, #camera>div>div:first-child {
   visibility: hidden;
