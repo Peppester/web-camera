@@ -102,14 +102,15 @@ button, #upload_status, #upload_result, #loader {
 }
 .bottombar>* {
   display: inline-block;
+  margin: 0.125em;
 }
 .bottombar>.stacked>* {
   display: block;
+  margin: 0 auto;
 }
 .bottombar>*:not(.stacked), .bottombar>.stacked>* {
   color: white !important;
   padding: 0.125em;
-  margin: 0.125em;
   position: static;
   border: 1px solid rgba(0,0,0,0.5);
   border-radius: .5em;
@@ -121,7 +122,6 @@ button, #upload_status, #upload_result, #loader {
 .bottombar>div>input {
   outline: 1px solid rgba(0,0,0,.4);
   box-shadow: inset 0px 999px rgba(0,0,0,0.1);
-  transform: translateY(-45%);
   width: 100px;
 }
 .bottombar button {
