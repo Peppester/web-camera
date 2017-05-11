@@ -99,5 +99,5 @@ button, #upload_status, #upload_result, #loader {
   bottom: 1em;
   border-width: 50% / 50%;
   left: 50%;
-  transform: translate(-50%,0);
+  transform: translateX(-50%);
 }
