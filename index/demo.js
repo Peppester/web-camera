@@ -161,11 +161,12 @@ $(function() {
 		}
 
 		camera = new JpegCamera("#camera", options).ready(function(info) {
-			$("video").removeAttr('style');
+			$("video,#camera>div>div:nth-child(2)").removeAttr('style');
 			$("#take_snapshots").show();
 
 			$("#camera_info").html(
-				"Camera resolution: " + info.video_width + "x" + info.video_height);
+				"Camera resolution: " + info.video_width + "x" + info.video_height
+			);
 			
 			if (Math.max(info.video_width,info.video_height)<1120 || Math.min(info.video_width,info.video_height)<630){
 				alert("Your deveice's camera has a resolution of " + info.video_width + "x" + info.video_height + ". The images you take with this camera will not count because they are too low resolution.");
