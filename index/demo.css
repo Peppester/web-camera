@@ -117,6 +117,8 @@ button, #upload_status, #upload_result, #loader {
 .bottombar>div>input {
   outline: 1px solid rgba(0,0,0,.4);
   box-shadow: inset 0px 999px rgba(0,0,0,0.1);
+  transform: translateY(-45%);
+  width: 100px;
 }
 .bottombar>button {
   transform: translateY(-45%);
