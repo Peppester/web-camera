@@ -12,7 +12,7 @@ html, body {
 }
 
 #preview button {
-  z-index: 999;
+  z-index: 600;
 }
 
 #preview canvas, video {
@@ -26,7 +26,7 @@ html, body {
   z-index: -1;
 }
 #preview *:not(canvas) {
-  z-index: 900;
+  z-index: 300;
 }
 #preview.hidden {
   display: none;
@@ -101,9 +101,11 @@ button, #upload_status, #upload_result, #loader {
   font-size: 125%;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 900;
 }
 .bottombar>* {
-  padding: 0.25em;
+  padding: 0.125em;
+  margin: 0.125em;
   display: inline-block !important;
   position: static;
   border: 1px solid rgba(0,0,0,0.5);
