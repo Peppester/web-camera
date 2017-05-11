@@ -49,10 +49,6 @@ button:not(#preview *), input, #loader {
   display: none;
 }
 
-input {
-  width: 300px;
-}
-
 #camera {
   display: inline-block;
   background-color: transparent;
@@ -104,7 +100,7 @@ button, #upload_status, #upload_result, #loader {
   transform: translateX(-50%);
   z-index: 900;
 }
-.bottombar>* {
+.bottombar>*:not(.stacked), .bottombar>.stacked>* {
   color: white !important;
   padding: 0.125em;
   margin: 0.125em;
