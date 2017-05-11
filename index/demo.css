@@ -123,7 +123,7 @@ button, #upload_status, #upload_result, #loader {
   transform: translateY(-45%);
   width: 100px;
 }
-.bottombar>button {
+.bottombar button {
   transform: translateY(-45%);
   font-size: 150%;
 }
