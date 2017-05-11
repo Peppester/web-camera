@@ -96,6 +96,7 @@ button, #upload_status, #upload_result, #loader {
 
 .bottombar {
   position: fixed;
+  white-space: nowrap;
   bottom: 0.25em;
   border: 1px solid rgba(0,0,0,0.5);
   font-size: 125%;
