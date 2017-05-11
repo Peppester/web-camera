@@ -25,11 +25,17 @@
       </div>
     </div><br />
 
-    <button id="take_snapshots">Take picture</button>
     <button id="show_stream" style="display:none">Show stream</button><br />
-
     <div id="snapshots" style="display:none"></div>
-
+    
+    <div class="bottombar">
+      <div><div>Contrast</div><br /><input id="contrast" type="range" min="50" max="150" value="100" style="width:50px" /></div>
+      <div><div>Contrast</div><br /><input id="contrast" type="range" min="50" max="150" value="100" style="width:50px" /></div>
+      <button id="take_snapshots">Take picture</button>
+      <div><div>Contrast</div><br /><input id="contrast" type="range" min="75" max="125" value="100" style="width:50px" /></div>
+      <div><div>Color</div><br /><input id="saturation" type="range" min="75" max="125" value="100" style="width:50px" /></div>
+    </div>
+    
     <button id="discard_snapshot" style="display:none">Discard snapshot</button>
     <button id="upload_snapshot" style="display:none">Upload to URL</button><br />
 
