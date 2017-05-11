@@ -26,6 +26,8 @@ $(function() {
 		var take_snapshots = function(count) {
 			$preview_canvas.width = camera.video.videoWidth;
 			$preview_canvas.height = camera.video.videoHeight;
+			$preview_cContext.translate($preview_canvas.width, 0);
+			$preview_cContext.scale(-1, 1);
 			$preview_cContext.drawImage(camera.video, 0, 0);
 			/*$preview_canvas.src = $preview_canvas.toDataURL('image/png');*/
 			$preview_box.className = "";
@@ -33,12 +35,16 @@ $(function() {
 				$download_link.href = $preview_canvas.toDataURL('image/jpeg');
 				$download_link.click();
 				$preview_box.className = "hidden";
-				// free up memory:
+				// free up memory & reset:
+				$preview_cContext.scale(-1, 1);
+				$preview_cContext.translate(-$preview_canvas.width, 0);
 				$preview_cContext.clearRect(0, 0, $preview_canvas.width, $preview_canvas.height);
 			}
 			$cancel_button.onclick = function(){
 				$preview_box.className = "hidden";
-				// free up memory:
+				// free up memory & reset:
+				$preview_cContext.scale(-1, 1);
+				$preview_cContext.translate(-$preview_canvas.width, 0);
 				$preview_cContext.clearRect(0, 0, $preview_canvas.width, $preview_canvas.height);
 			}
 			/*if (JpegCamera.canvas_supported()) {
