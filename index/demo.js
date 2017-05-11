@@ -182,12 +182,13 @@ $(function() {
 			);
 			
 			var brightness="100", sepia="0", contrast="100", saturation="100", updateFilters = function(){
-				console.log($video_element,brightness, sepia, contrast, saturation, updateFilters );
-				$preview_cContext.filter = $video_element[0].style.filter =
-					'brightness(' + brightness + '%) ' +
+				var filterCSS = 'brightness(' + brightness + '%) ' +
 					'sepia(' + sepia + '%) ' +
 					'contrast(' + contrast + '%) ' +
 					'saturation(' + saturation + '%)';
+				console.log($video_element, filterCSS);
+				$video_element.css('filter', filterCSS);
+				$preview_cContext.filter = filterCSS;
 			};
 			$('#brightness').on('input', function(){ brightness = this.value.toString(); updateFilters(); } );
 			$('#sepia').on('input', function(){ sepia = this.value.toString(); updateFilters(); } );
