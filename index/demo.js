@@ -184,7 +184,7 @@ $(function() {
 				var filterCSS = 'brightness(' + brightness + '%) ' +
 					'sepia(' + sepia + '%) ' +
 					'contrast(' + contrast + '%) ' +
-					'saturation(' + saturation + '%)';
+					'saturate(' + saturation + '%)';
 				$('video').attr('style', 'filter: ' + filterCSS);
 				$preview_cContext.filter = filterCSS;
 			};
