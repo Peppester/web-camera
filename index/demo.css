@@ -108,6 +108,9 @@ button, #upload_status, #upload_result, #loader {
   display: block;
   margin: 0 auto;
 }
+.bottombar>.stacked>*:first-child {
+  margin-bottom: .125em;
+}
 .bottombar>*:not(.stacked), .bottombar>.stacked>* {
   color: white !important;
   padding: 0.125em;
