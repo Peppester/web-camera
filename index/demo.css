@@ -125,6 +125,6 @@ button, #upload_status, #upload_result, #loader {
   visibility: hidden;
   display: none;
 }
-#camera:nth-child(2) {
+#camera>div>div:nth-child(2) {
   height: 0; width: 0;
 }
