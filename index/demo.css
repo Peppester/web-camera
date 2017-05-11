@@ -92,6 +92,7 @@ button, #upload_status, #upload_result, #loader {
 }
 
 .bottombar {
+  color: white;
   position: fixed;
   white-space: nowrap;
   bottom: 0.25em;
