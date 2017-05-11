@@ -161,6 +161,7 @@ $(function() {
 		}
 
 		camera = new JpegCamera("#camera", options).ready(function(info) {
+			$("video").removeAttr('style');
 			$("#take_snapshots").show();
 
 			$("#camera_info").html(
