@@ -98,5 +98,6 @@ button, #upload_status, #upload_result, #loader {
   position: fixed;
   bottom: 1em;
   border-width: 50% / 50%;
-  margin: 0 auto;
+  left: 50%;
+  transform: translate(-50%,0);
 }
