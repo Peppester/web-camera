@@ -253,7 +253,7 @@ $(function() {
 
 		function exitHandler() {
 			if (document.webkitFullscreenElement ||  document.FullscreenElement
-			     || document.webkitIsFullScreen || document.mozFullScreen != null) {
+			     || document.webkitIsFullScreen || document.mozFullScreen !== null) {
 				$('video').css('pointer-events', 'none');
 			}
 		}
