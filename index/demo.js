@@ -45,13 +45,13 @@ $(function() {
 			$preview_cContext.translate($preview_canvas.width, 0);
 			$preview_cContext.scale(-1, 1);
 			$preview_cContext.drawImage(camera.video, 0, 0);
-			$preview_cContext.font = '80px Arizonia';
+			//$preview_cContext.font = '80px Arizonia';
 			/*$preview_canvas.src = $preview_canvas.toDataURL('image/png');*/
 			$preview_box.className = "";
 			$download_button.onclick = function(){
-				$preview_cContext.fillStyle = "white";
+				/*$preview_cContext.fillStyle = "white";
 				$preview_cContext.textBaseline = 'top'; 
-				$preview_cContext.textAlign = 'center';
+				$preview_cContext.textAlign = 'center';*/
 				$preview_cContext.scale(-1, 1);
 				$preview_cContext.translate(-$preview_canvas.width, 0);
 			//$preview_cContext.font = '80px Arizonia';
@@ -242,7 +242,7 @@ $(function() {
 		requestFS.on('click', function(){
 			var el = document.documentElement;
 			(el.requestFullscreen || el.webkitRequestFullScreen
-			 || el.mozRequestFullScreen || el.msRequestFullscreen)();
+			 || el.mozRequestFullScreen || el.msRequestFullscreen).call(el);
 		});
 	}
 });
