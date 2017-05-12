@@ -45,11 +45,10 @@ $(function() {
 				$preview_cContext.textBaseline = 'top'; 
 				$preview_cContext.textAlign = 'center'; 
 				$preview_canvas.dir = 'rtl';
-				$preview_cContext.font = '96px Arizonia';
 				$preview_cContext.fillStyle = "white";
 				$preview_cContext.scale(-1, 1);
 				$preview_cContext.translate(-$preview_canvas.width, 0);
-				if (petsName) $preview_cContext.fillText(petsName.trim(), $preview_canvas.width/2.5, 64);
+				if (petsName) $preview_cContext.fillText(petsName.trim(), $preview_canvas.width/2, 64);
 				$preview_cContext.filter = $preview_canvas.style.filter;
 				$preview_cContext.drawImage( $preview_canvas, 0, 0 );
 				$preview_cContext.translate($preview_canvas.width, 0);
