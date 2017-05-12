@@ -34,7 +34,8 @@ $(function() {
 			$preview_cContext.drawImage(camera.video, 0, 0);
 			/*$preview_canvas.src = $preview_canvas.toDataURL('image/png');*/
 			$preview_box.className = "";
-			$download_button.onclick = function(){
+			$download_button.onclick = function(){console.log($preview_cContext.filter);
+				
 				var petsName = prompt(
 					'What is your pets name?\n' + 
 					'This text will be put at the bottom of the image. ' + 
