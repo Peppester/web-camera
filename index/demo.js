@@ -25,6 +25,7 @@ $(function() {
 		$preview_cContext.textBaseline = 'top'; 
 		$preview_cContext.textAlign = 'center'; 
 		$preview_canvas.dir = 'ltr';
+		$preview_cContext.font = '96px Arizonia';
 		
 		var take_snapshots = function(count) {
 			$preview_canvas.width = camera.video.videoWidth;
