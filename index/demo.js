@@ -239,17 +239,12 @@ $(function() {
 				alert("Your deveice's camera has a resolution of " + info.video_width + "x" + info.video_height + ". The images you take with this camera will not count because they are too low resolution.");
 			}
 		});
-		var requestFS = $('#rfs'), go = true;
+		var requestFS = $('#rfs');
 		requestFS.on('click', function(){
-			$('video').css('pointer-events', 'all');
 			var el = document.documentElement;
 			(el.requestFullscreen || el.webkitRequestFullScreen
 			 || el.mozRequestFullScreen || el.msRequestFullscreen).call(el);
-			if (go){
-				go = false;
-				this.click();
-				setTimeout(function(){go = true}, 100);
-			}
+			setTimeout(function(){ $('video').css('pointer-events', 'all') }, 100);
 		});
 		document.addEventListener('webkitfullscreenchange', exitHandler, false);
 		document.addEventListener('mozfullscreenchange', exitHandler, false);
