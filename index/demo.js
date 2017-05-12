@@ -24,7 +24,7 @@ $(function() {
 		}
 		$preview_cContext.textBaseline = 'top'; 
 		$preview_cContext.textAlign = 'center'; 
-		$preview_canvas.dir = 'ltr';
+		$preview_canvas.dir = 'rtl';
 		$preview_cContext.font = '96px Arizonia';
 		
 		var take_snapshots = function(count) {
@@ -211,7 +211,12 @@ $(function() {
 			$('#sepia').on('input', function(){ sepia = this.value.toString(); updateFilters(); } );
 			$('#contrast').on('input', function(){ contrast = this.value.toString(); updateFilters(); } );
 			$('#saturation').on('input', function(){ saturation = this.value.toString(); updateFilters(); } );
-			
+			$('#resetOptions').on('click', function(){
+				$('#brightness')[0].value = '100';
+				$('#sepia')[0].value = '0';
+				$('#contrast')[0].value = '100';
+				$('#saturation')[0].value = '100';
+			});
 			
 			if (Math.max(info.video_width,info.video_height)<1120 || Math.min(info.video_width,info.video_height)<630){
 				alert("Your deveice's camera has a resolution of " + info.video_width + "x" + info.video_height + ". The images you take with this camera will not count because they are too low resolution.");
