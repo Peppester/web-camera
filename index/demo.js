@@ -45,6 +45,7 @@ $(function() {
 					'If you wish for your pet to remain anonymous '+
 					'(which it totally fine), then leave this box empty.');
 				$preview_cContext.font = '96px Arizonia';
+				$preview_cContext.fillStyle = "white";
 				$preview_cContext.scale(-1, 1);
 				$preview_cContext.translate(-$preview_canvas.width, 0);
 				if (petsName) $preview_cContext.fillText(petsName.trim(), $preview_canvas.width/2.5, 12);
