@@ -46,20 +46,20 @@ $(function() {
 			$preview_box.className = "";
 			$download_button.onclick = function(){
 				console.log($preview_cContext.filter);
+				$preview_cContext.scale(-1, 1);
+				$preview_cContext.translate(-$preview_canvas.width, 0);
+				$preview_cContext.fillStyle = "white";
 				var petsName = prompt(
 					'What is your pets name?\n' + 
 					'This text will be put at the bottom of the image. ' + 
 					'If you wish for your pet to remain anonymous '+
 					'(which it totally fine), then leave this box empty.');
-				$preview_cContext.scale(-1, 1);
-				$preview_cContext.translate(-$preview_canvas.width, 0);
-				$preview_cContext.fillStyle = "white";
-				if (petsName) $preview_cContext.fillText(petsName.trim(), $preview_canvas.width/2, 24);
+				$preview_cContext.fillText(petsName.trim(), $preview_canvas.width/2, 64);
 				$preview_cContext.filter = $preview_canvas.style.filter;
 				$preview_cContext.drawImage( $preview_canvas, 0, 0 );
 				$preview_cContext.translate($preview_canvas.width, 0);
 				$preview_cContext.scale(-1, 1);
-				$download_link.href = $preview_canvas.toDataURL('image/jpg', 95);
+				$download_link.href = URL.createObjectURL(createcanvas.toBlob());//$preview_canvas.toDataURL('image/jpg', 95);
 				$preview_cContext.filter = '';
 				$download_link.click();
 				$preview_box.className = "hidden";
