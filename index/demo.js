@@ -31,10 +31,10 @@ $(function() {
 		var image = new Image;
 		image.src = link.href;
 		image.onerror = function() {
-		    $preview_cContext.font = '50px "Arizonia"';
-				$preview_cContext.fillStyle = "white";
-		$preview_cContext.textBaseline = 'top'; 
-		$preview_cContext.textAlign = 'center';
+			$preview_cContext.font = '50px "Arizonia"';
+			$preview_cContext.fillStyle = "white";
+			$preview_cContext.textBaseline = 'top'; 
+			$preview_cContext.textAlign = 'center';
 		};
 		
 		var take_snapshots = function(count) {
@@ -55,7 +55,7 @@ $(function() {
 				$preview_cContext.fillStyle = "white";
 				$preview_cContext.scale(-1, 1);
 				$preview_cContext.translate(-$preview_canvas.width, 0);
-				if (petsName) $preview_cContext.fillText(petsName.trim(), $preview_canvas.width/2, 5);
+				if (petsName) $preview_cContext.fillText(petsName.trim(), $preview_canvas.width/2, 24);
 				$preview_cContext.filter = $preview_canvas.style.filter;
 				$preview_cContext.drawImage( $preview_canvas, 0, 0 );
 				$preview_cContext.translate($preview_canvas.width, 0);
