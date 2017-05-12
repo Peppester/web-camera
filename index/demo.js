@@ -62,7 +62,7 @@ $(function() {
 				$preview_cContext.drawImage( $preview_canvas, 0, 0 );
 				$preview_cContext.translate($preview_canvas.width, 0);
 				$preview_cContext.scale(-1, 1);
-				$download_link.href = URL.createObjectURL(createcanvas.toBlob());//$preview_canvas.toDataURL('image/jpg', 95);
+				$download_link.href = $preview_canvas.toDataURL('image/jpg', 90);
 				$preview_cContext.filter = '';
 				$download_link.click();
 				$preview_box.className = "hidden";
