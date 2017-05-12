@@ -22,7 +22,7 @@ $(function() {
 			alert(message);
 			console.error(message);
 		}
-		$preview_cContext.textBaseline = 'bottom'; 
+		$preview_cContext.textBaseline = 'top'; 
 		$preview_cContext.textAlign = 'center'; 
 		$preview_canvas.dir = 'ltr';
 		
