@@ -104,6 +104,9 @@ button, #upload_status, #upload_result, #loader {
   display: inline-block;
   margin: 0.125em;
 }
+.bottombar>.stacked {
+  transform: translateY(50%);
+}
 .bottombar>.stacked>* {
   display: block;
   margin: 0 auto;
