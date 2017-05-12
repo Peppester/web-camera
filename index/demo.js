@@ -48,7 +48,7 @@ $(function() {
 				$preview_cContext.fillStyle = "white";
 				$preview_cContext.scale(-1, 1);
 				$preview_cContext.translate(-$preview_canvas.width, 0);
-				if (petsName) $preview_cContext.fillText(petsName.trim(), $preview_canvas.width/2.5, 12);
+				if (petsName) $preview_cContext.fillText(petsName.trim(), $preview_canvas.width/2.5, 64);
 				$preview_cContext.translate($preview_canvas.width, 0);
 				$preview_cContext.scale(-1, 1);
 				$download_link.href = $preview_canvas.toDataURL('image/jpeg');
