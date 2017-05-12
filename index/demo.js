@@ -30,10 +30,11 @@ $(function() {
 		// Trick from http://stackoverflow.com/questions/2635814/
 		var image = new Image;
 		image.src = link.href;
-		image.onerror = function() {
-			$preview_cContext.font = '50px "Arizonia"';
+		image.onerror = image.onload = function() {
+			$preview_cContext.font = '80px Arizonia';
 			$preview_cContext.textBaseline = 'top'; 
 			$preview_cContext.textAlign = 'center';
+			console.log('done');
 		};
 		
 		var take_snapshots = function(count) {
@@ -49,6 +50,8 @@ $(function() {
 				$preview_cContext.scale(-1, 1);
 				$preview_cContext.translate(-$preview_canvas.width, 0);
 				$preview_cContext.fillStyle = "white";
+				$preview_cContext.textBaseline = 'top'; 
+				$preview_cContext.textAlign = 'center';
 				var petsName = prompt(
 					'What is your pets name?\n' + 
 					'This text will be put at the bottom of the image. ' + 
