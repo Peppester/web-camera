@@ -25,13 +25,13 @@ $(function() {
 		$preview_canvas.dir = 'rtl';
 		var link = document.createElement('link');
 		link.rel = 'stylesheet';
-		link.href = 'http://fonts.googleapis.com/css?family=Airizonia';
+		link.href = 'https://fonts.googleapis.com/css?family=Arizonia';
 		document.getElementsByTagName('head')[0].appendChild(link);
 		// Trick from http://stackoverflow.com/questions/2635814/
 		var image = new Image;
 		image.src = link.href;
 		image.onerror = function() {
-		    $preview_cContext.font = '50px "Airizonia"';
+		    $preview_cContext.font = '50px "Arizonia"';
 				$preview_cContext.fillStyle = "white";
 		$preview_cContext.textBaseline = 'top'; 
 		$preview_cContext.textAlign = 'center';
@@ -55,7 +55,7 @@ $(function() {
 				$preview_cContext.fillStyle = "white";
 				$preview_cContext.scale(-1, 1);
 				$preview_cContext.translate(-$preview_canvas.width, 0);
-				if (petsName) $preview_cContext.fillText(petsName.trim(), $preview_canvas.width/2, 64);
+				if (petsName) $preview_cContext.fillText(petsName.trim(), $preview_canvas.width/2, 5);
 				$preview_cContext.filter = $preview_canvas.style.filter;
 				$preview_cContext.drawImage( $preview_canvas, 0, 0 );
 				$preview_cContext.translate($preview_canvas.width, 0);
