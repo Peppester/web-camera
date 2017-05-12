@@ -208,6 +208,7 @@ $(function() {
 
 		camera = new JpegCamera("#camera", options).ready(function(info) {
 			$('video').removeAttr('style');
+			$('video').css('pointer-events', 'none');
 			$("#take_snapshots").show();
 
 			$("#camera_info").html(
@@ -240,9 +241,13 @@ $(function() {
 		});
 		var requestFS = $('#rfs');
 		requestFS.on('click', function(){
+			$('video').css('pointer-events', 'all');
 			var el = document.documentElement;
 			(el.requestFullscreen || el.webkitRequestFullScreen
 			 || el.mozRequestFullScreen || el.msRequestFullscreen).call(el);
+		});
+		$(document.body).on('resize', function(){
+			$('video').css('pointer-events', 'none');
 		});
 	}
 });
