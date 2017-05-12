@@ -221,10 +221,11 @@ $(function() {
 			$('#contrast').on('input', function(){ contrast = this.value.toString(); updateFilters(); } );
 			$('#saturation').on('input', function(){ saturation = this.value.toString(); updateFilters(); } );
 			$('#resetOptions').on('click', function(){
-				$('#brightness')[0].value = '100';
-				$('#sepia')[0].value = '0';
-				$('#contrast')[0].value = '100';
-				$('#saturation')[0].value = '100';
+				brightness = $('#brightness')[0].value = '100';
+				sepia = $('#sepia')[0].value = '0';
+				contrast = $('#contrast')[0].value = '100';
+				saturation = $('#saturation')[0].value = '100';
+				updateFilters();
 			});
 			
 			if (Math.max(info.video_width,info.video_height)<1120 || Math.min(info.video_width,info.video_height)<630){
