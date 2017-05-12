@@ -39,8 +39,8 @@ $(function() {
 					'This text will be put at the bottom of the image. ' + 
 					'If you wish for your pet to remain anonymous '+
 					'(which it totally fine), then leave this box empty.');
-				ctx.font = '64px Arizonia';
-				if (petsName) ctx.fillText(petsName, canvas_width-8, canvas_height/2);
+				$preview_cContext.font = '64px Arizonia';
+				if (petsName) $preview_cContext.fillText(petsName, $preview_canvas.width/2, $preview_canvas.height-8);
 				$download_link.href = $preview_canvas.toDataURL('image/jpeg');
 				$download_link.click();
 				$preview_box.className = "hidden";
