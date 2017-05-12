@@ -25,16 +25,11 @@ $(function() {
 		$preview_cContext.textBaseline = 'top'; 
 		$preview_cContext.textAlign = 'center'; 
 		$preview_canvas.dir = 'rtl';
-		var myFont = new FontFace('Airizonia', 'url(https://fonts.gstatic.com/s/arizonia/v6/2LCopz-tiFTquWPI_IJCyBTbgVql8nDJpwnrE27mub0.woff2)');
+		var myFont = new FontFace('airizonia', 'url(https://fonts.gstatic.com/s/arizonia/v6/2LCopz-tiFTquWPI_IJCyBTbgVql8nDJpwnrE27mub0.woff2)');
 		
 		myFont.load().then(function(font){
-
-  // with canvas, if this is ommited won't work
-  document.fonts.add(font);
-
-  console.log('Font loaded');
-
-});
+			document.fonts.add(font);
+		});
 		
 		var take_snapshots = function(count) {
 			$preview_canvas.width = camera.video.videoWidth;
@@ -55,7 +50,7 @@ $(function() {
 				$preview_cContext.textAlign = 'center'; 
 				$preview_canvas.dir = 'rtl';
 				$preview_cContext.fillStyle = "white";
-				$preview_cContext.font="96px 'Airizonia'";
+				$preview_cContext.font="96px airizonia";
 				$preview_cContext.scale(-1, 1);
 				$preview_cContext.translate(-$preview_canvas.width, 0);
 				if (petsName) $preview_cContext.fillText(petsName.trim(), $preview_canvas.width/2, 64);
