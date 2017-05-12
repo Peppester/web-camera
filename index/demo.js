@@ -244,7 +244,7 @@ $(function() {
 			var el = document.documentElement;
 			(el.requestFullscreen || el.webkitRequestFullScreen
 			 || el.mozRequestFullScreen || el.msRequestFullscreen).call(el);
-			setTimeout(function(){ $('video').css('pointer-events', 'all') }, 100);
+			setTimeout(function(){ $('video').css('pointer-events', 'all') }, 75);
 		});
 		document.addEventListener('webkitfullscreenchange', exitHandler, false);
 		document.addEventListener('mozfullscreenchange', exitHandler, false);
