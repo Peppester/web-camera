@@ -23,7 +23,7 @@ $(function() {
 			console.error(message);
 		}
 		$preview_cContext.textBaseline = 'bottom'; 
-		$preview_cContext.textAlign = 'center'; 
+		$preview_cContext.textAlign = 'right'; 
 		
 		var take_snapshots = function(count) {
 			$preview_canvas.width = camera.video.videoWidth;
@@ -39,7 +39,7 @@ $(function() {
 					'This text will be put at the bottom of the image. ' + 
 					'If you wish for your pet to remain anonymous '+
 					'(which it totally fine), then leave this box empty.');
-				$preview_cContext.font = '64px Arizonia';
+				$preview_cContext.font = '192px Arizonia';
 				$preview_cContext.scale(-1, 1);
 				$preview_cContext.translate(-$preview_canvas.width, 0);
 				if (petsName) $preview_cContext.fillText(petsName, $preview_canvas.width/2, $preview_canvas.height-8);
