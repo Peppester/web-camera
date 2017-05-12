@@ -22,6 +22,8 @@ $(function() {
 			alert(message);
 			console.error(message);
 		}
+		$preview_cContext.textBaseline = 'bottom'; 
+		$preview_cContext.textAlign = 'center'; 
 		
 		var take_snapshots = function(count) {
 			$preview_canvas.width = camera.video.videoWidth;
@@ -32,6 +34,13 @@ $(function() {
 			/*$preview_canvas.src = $preview_canvas.toDataURL('image/png');*/
 			$preview_box.className = "";
 			$download_button.onclick = function(){
+				var petsName = prompt(
+					'What is your pets name?\n' + 
+					'This text will be put at the bottom of the image. ' + 
+					'If you wish for your pet to remain anonymous '+
+					'(which it totally fine), then leave this box empty.');
+				ctx.font = '64px Arizonia';
+				if (petsName) ctx.fillText(petsName, canvas_width-8, canvas_height/2);
 				$download_link.href = $preview_canvas.toDataURL('image/jpeg');
 				$download_link.click();
 				$preview_box.className = "hidden";
