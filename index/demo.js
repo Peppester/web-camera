@@ -23,7 +23,7 @@ $(function() {
 			console.error(message);
 		}
 		$preview_cContext.textBaseline = 'bottom'; 
-		$preview_cContext.textAlign = 'center'; 
+		$preview_cContext.textAlign = 'left'; 
 		
 		var take_snapshots = function(count) {
 			$preview_canvas.width = camera.video.videoWidth;
@@ -42,7 +42,7 @@ $(function() {
 				$preview_cContext.font = '96px Arizonia';
 				$preview_cContext.scale(-1, 1);
 				$preview_cContext.translate(-$preview_canvas.width, 0);
-				if (petsName) $preview_cContext.fillText(petsName, $preview_canvas.width/2 + 12, $preview_canvas.height - 24);
+				if (petsName) $preview_cContext.fillText(petsName, $preview_canvas.width/2, $preview_canvas.height - 24);
 				$preview_cContext.translate($preview_canvas.width, 0);
 				$preview_cContext.scale(-1, 1);
 				$download_link.href = $preview_canvas.toDataURL('image/jpeg');
