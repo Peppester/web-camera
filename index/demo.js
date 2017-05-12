@@ -22,19 +22,19 @@ $(function() {
 			alert(message);
 			console.error(message);
 		} 
-		$preview_canvas.dir = 'rtl';
+		//$preview_canvas.dir = 'rtl';
 		var link = document.createElement('link');
 		link.rel = 'stylesheet';
 		link.href = 'https://fonts.googleapis.com/css?family=Arizonia';
-		document.getElementsByTagName('head')[0].appendChild(link);
-		// Trick from http://stackoverflow.com/questions/2635814/
-		var image = new Image;
+		document.head.appendChild(link);
+		var image = new Image();
 		image.src = link.href;
 		image.onerror = image.onload = function() {
+			$preview_cContext.textBaseline = 'top'; 
+			$preview_cContext.textAlign = 'center';
 			$preview_cContext.font = '80px Arizonia';
 			$preview_cContext.textBaseline = 'top'; 
 			$preview_cContext.textAlign = 'center';
-			console.log('done');
 		};
 		
 		var take_snapshots = function(count) {
@@ -46,18 +46,18 @@ $(function() {
 			/*$preview_canvas.src = $preview_canvas.toDataURL('image/png');*/
 			$preview_box.className = "";
 			$download_button.onclick = function(){
-				console.log($preview_cContext.filter);
-				$preview_cContext.scale(-1, 1);
-				$preview_cContext.translate(-$preview_canvas.width, 0);
 				$preview_cContext.fillStyle = "white";
 				$preview_cContext.textBaseline = 'top'; 
 				$preview_cContext.textAlign = 'center';
+				$preview_cContext.scale(-1, 1);
+				$preview_cContext.translate(-$preview_canvas.width, 0);
+			$preview_cContext.font = '80px Arizonia';
 				var petsName = prompt(
 					'What is your pets name?\n' + 
 					'This text will be put at the bottom of the image. ' + 
 					'If you wish for your pet to remain anonymous '+
 					'(which it totally fine), then leave this box empty.');
-				$preview_cContext.fillText(petsName.trim(), $preview_canvas.width/2, 64);
+				$preview_cContext.fillText(petsName.trim(), $preview_canvas.width/2, $preview_canvas.height/2);
 				$preview_cContext.filter = $preview_canvas.style.filter;
 				$preview_cContext.drawImage( $preview_canvas, 0, 0 );
 				$preview_cContext.translate($preview_canvas.width, 0);
