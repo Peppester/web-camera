@@ -246,8 +246,16 @@ $(function() {
 			(el.requestFullscreen || el.webkitRequestFullScreen
 			 || el.mozRequestFullScreen || el.msRequestFullscreen).call(el);
 		});
-		$(document.body).on('resize', function(){
-			$('video').css('pointer-events', 'none');
-		});
+		document.addEventListener('webkitfullscreenchange', exitHandler, false);
+		document.addEventListener('mozfullscreenchange', exitHandler, false);
+		document.addEventListener('fullscreenchange', exitHandler, false);
+		document.addEventListener('MSFullscreenChange', exitHandler, false);
+
+		function exitHandler() {
+			if (document.webkitFullscreenElement ||  document.FullscreenElement
+			     || document.webkitIsFullScreen || document.mozFullScreen != null) {
+				$('video').css('pointer-events', 'none');
+			}
+		}
 	}
 });
