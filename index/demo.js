@@ -23,7 +23,8 @@ $(function() {
 			console.error(message);
 		}
 		$preview_cContext.textBaseline = 'bottom'; 
-		$preview_cContext.textAlign = 'left'; 
+		$preview_cContext.textAlign = 'center'; 
+		$preview_canvas.dir = 'rtl';
 		
 		var take_snapshots = function(count) {
 			$preview_canvas.width = camera.video.videoWidth;
