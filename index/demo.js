@@ -55,12 +55,10 @@ $(function() {
 			$preview_cContext.translate(-$preview_canvas.width, 0);
 			//$preview_cContext.clearRect(0, 0, $preview_canvas.width, $preview_canvas.height);
 			$preview_cContext.putImageData(theImageData, 0, 0);
-			$($preview_box).fadeIn();
+			$($preview_box).fadeIn(250);
 			$preview_box.className = "";
 			$download_button.onclick = function(){
 				$('#loading').css('display', 'block');
-				/*$preview_cContext.scale(-1, 1);
-				$preview_cContext.translate(-$preview_canvas.width, 0);*/
 				$preview_cContext.fillStyle = "white";
 				$preview_cContext.textBaseline = 'top'; 
 				$preview_cContext.textAlign = 'center';
@@ -73,8 +71,6 @@ $(function() {
 				$preview_cContext.filter = $preview_canvas.style.filter;
 				$preview_cContext.drawImage( $preview_canvas, 0, 0 );
 				$preview_cContext.fillText(petsName.trim(), $preview_canvas.width/2, 12);
-				/*$preview_cContext.translate($preview_canvas.width, 0);
-				$preview_cContext.scale(-1, 1);*/
 				
 				
 				$preview_canvas.toBlob(function(blob) {
@@ -83,14 +79,24 @@ $(function() {
 					$download_link.click();
 					// free up memory & reset:
 					//$preview_box.className = "hidden";
-					$($preview_box).fadeOut();
-					/*$preview_cContext.scale(-1, 1);
-					$preview_cContext.translate(-$preview_canvas.width, 0);*/
+					$($preview_box).fadeOut(200);
 					$preview_cContext.clearRect(0, 0, $preview_canvas.width, $preview_canvas.height);
 					setTimeout(function(){
 						$('#loading').css('display', 'none');
-					}, 50);
-				}, 'image/jpeg', 96);
+					}, 150);
+				}, 'image/jpeg', 0.96);
+				/*CanvasPngCompression.revertToDataURL();
+				var compressedImage = $preview_canvas.toDataURL('image/png', 9), bestCompressOption='original';
+				for (var cStrategy=0; cStrategy++!==4; ){
+					CanvasPngCompression.replaceToDataURL({windowBits:15,chunkSize:32*1024,strategy:cStrategy});
+					var newCompressedImage = $preview_canvas.toDataURL('image/png', 9);
+					if (newCompressedImage.length<compressedImage.length){
+						bestCompressOption = cStrategy;
+						compressedImage = newCompressedImage;
+					} else {
+					// release memory
+					newCompressedImage = "";
+				}*/
 				/*oReq.addEventListener("error", function(evt) {
 					console.log(this, evt)
 				});
@@ -103,7 +109,7 @@ $(function() {
 			}
 			$cancel_button.onclick = function(){
 				//$preview_box.className = "hidden";
-				$($preview_box).fadeOut();
+				$($preview_box).fadeOut(250);
 				// free up memory & reset:
 				$preview_cContext.scale(-1, 1);
 				$preview_cContext.translate(-$preview_canvas.width, 0);
@@ -249,8 +255,19 @@ $(function() {
 				updateFilters();
 			});
 			
-			if (Math.max(info.video_width,info.video_height)<1120 || Math.min(info.video_width,info.video_height)<630){
-				alert("Your deveice's camera has a resolution of " + info.video_width + "x" + info.video_height + ". The images you take with this camera will not count because they are too low resolution.");
+			if (Math.max(info.video_width,info.video_height)<1120 || 
+			    Math.min(info.video_width,info.video_height)<630){
+				alert("Your deveice's camera has a resolution of " + 
+				      info.video_width + "X" + info.video_height + 
+				      ". The images you take with this camera will" + 
+				      "not count because they are too low resolution.");
+			}
+			if (Math.min(info.video_width, info.video_height)>=1920 && 
+			    Math.min(info.video_width, info.video_height)>=1080){
+				alert("Your deveice's camera has a resolution of " + 
+				      info.video_width + "x" + info.video_height + 
+				      "! The images you take with this camera will" + 
+				      "be shown 2x as much because they are so high quality.");
 			}
 		});
 		var requestFS = $('#rfs');
@@ -258,7 +275,7 @@ $(function() {
 			var el = document.documentElement;
 			(el.requestFullscreen || el.webkitRequestFullScreen
 			 || el.mozRequestFullScreen || el.msRequestFullscreen).call(el);
-			setTimeout(function(){ $('video').css('pointer-events', 'all') }, 75);
+			setTimeout(function(){ $('#rfs').css('cursor', 'initial'); }, 75);
 		});
 		document.addEventListener('webkitfullscreenchange', exitHandler, false);
 		document.addEventListener('mozfullscreenchange', exitHandler, false);
@@ -268,7 +285,7 @@ $(function() {
 		function exitHandler() {
 			if (document.webkitFullscreenElement ||  document.FullscreenElement
 			     || document.webkitIsFullScreen || document.mozFullScreen !== null) {
-				$('video').css('pointer-events', 'none');
+				$('#rfs').css('cursor', 'pointer');
 			}
 		}
 	}
