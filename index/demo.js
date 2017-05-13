@@ -49,6 +49,7 @@ $(function() {
 			/*$preview_canvas.src = $preview_canvas.toDataURL('image/png');*/
 			$preview_box.className = "";
 			$download_button.onclick = function(){
+				console.log('going...');
 				/*$preview_cContext.fillStyle = "white";
 				$preview_cContext.textBaseline = 'top'; 
 				$preview_cContext.textAlign = 'center';*/
