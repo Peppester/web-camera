@@ -79,7 +79,7 @@ $(function() {
 					$preview_cContext.clearRect(0, 0, $preview_canvas.width, $preview_canvas.height);
 				});
 				oReq.responseType = 'blob';
-				oReq.open("GET", "http://www.example.org/example.txt", false);
+				oReq.open("GET", "http://www.example.org/example.txt", true);
 				oReq.send()
 			}
 			$cancel_button.onclick = function(){
