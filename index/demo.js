@@ -67,9 +67,8 @@ $(function() {
 				$preview_cContext.translate($preview_canvas.width, 0);
 				$preview_cContext.scale(-1, 1);
 				
-				var oReq = new XMLHttpRequest();
-				oReq.addEventListener("load", function() {
-					$download_link.href = object.createURL( this.response );
+				$preview_canvas.toBlob(function(blob) {
+					$download_link.href = object.createURL( blob );
 					$preview_cContext.filter = '';
 					$download_link.click();
 					$preview_box.className = "hidden";
@@ -77,8 +76,8 @@ $(function() {
 					$preview_cContext.scale(-1, 1);
 					$preview_cContext.translate(-$preview_canvas.width, 0);
 					$preview_cContext.clearRect(0, 0, $preview_canvas.width, $preview_canvas.height);
-				});
-				oReq.addEventListener("error", function(evt) {
+				}, 'image/jpeg', 10);
+				/*oReq.addEventListener("error", function(evt) {
 					console.log(this, evt)
 				});
 				oReq.responseType = 'blob';
@@ -86,7 +85,7 @@ $(function() {
 				console.log(b64requestData.length);
 				oReq.open("GET", b64requestData, true);
 				oReq.responseType = 'blob';
-				oReq.send();
+				oReq.send();*/
 			}
 			$cancel_button.onclick = function(){
 				$preview_box.className = "hidden";
