@@ -1,4 +1,5 @@
-CACHE:
+#CACHE:
+NETWORK:
 dist/jpeg_camera_with_dependencies.min.js
 index/demo.css
 index/demo.js
@@ -6,4 +7,4 @@ index/index.html
 favicon.ico
 
 NETWORK:
-cache.appcachr
+cache.appcache
