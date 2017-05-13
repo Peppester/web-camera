@@ -59,7 +59,7 @@ $(function() {
 				$preview_cContext.translate(-$preview_canvas.width, 0);
 			//$preview_cContext.font = '80px Arizonia';
 				var petsName = prompt(
-					'What is your pets name?\n' + 
+					'[!WIP!] What is your pets name?\n' + 
 					'This text will be put at the bottom of the image. ' + 
 					'If you wish for your pet to remain anonymous '+
 					'(which it totally fine), then leave this box empty.');
@@ -71,6 +71,7 @@ $(function() {
 				
 				$preview_canvas.toBlob(function(blob) {
 					$download_link.href = URL.createObjectURL( blob );
+					$download_link.download = petsName;
 					$preview_cContext.filter = '';
 					$download_link.click();
 					// free up memory & reset:
