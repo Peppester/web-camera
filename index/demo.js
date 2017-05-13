@@ -231,6 +231,7 @@ $(function() {
 			$('video').removeAttr('style');
 			$('video').css('pointer-events', 'none');
 			$("#take_snapshots").show();
+			$('#camera')[0].style.visibility = 'shown';
 
 			$("#camera_info").html(
 				"Camera resolution: " + info.video_width + "x" + info.video_height
