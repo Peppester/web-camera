@@ -18,9 +18,10 @@ $(function() {
 			$download_link = $('#download_link')[0];
 		
 		if (!('filter' in $preview_cContext)){
-			var message='You need to upgrade to eithor Chrome/Firefox for this webpage to work!';
+			var message='You need to upgrade to eithor Chrome/Firefox for filters to work!';
 			alert(message);
-			console.error(message);
+			//console.error(message);
+			docume
 		} 
 		//$preview_canvas.dir = 'rtl';
 		var link = document.createElement('link');
@@ -30,13 +31,13 @@ $(function() {
 		var image = new Image();
 		image.src = link.href;
 		image.onerror = image.onload = function() {
+			console.log('going...');
 			$preview_cContext.fillStyle = "white";
 			$preview_cContext.textBaseline = 'top'; 
 			$preview_cContext.textAlign = 'center';
 			$preview_cContext.font = '80px Arizonia';
 			// Now, get the canvas ready to display the font:
 			$preview_cContext.fillText('Example Text', $preview_canvas.width/2, 120);
-			$preview_cContext.fillStyle = "white";
 			$preview_cContext.drawImage( $preview_canvas, 0, 0 );
 			$preview_cContext.clearRect(0, 0, $preview_canvas.width, $preview_canvas.height);
 		};
@@ -52,12 +53,12 @@ $(function() {
 			$preview_box.className = "";
 			$download_button.onclick = function(){
 				$('#loading').css('display', 'block');
+				$preview_cContext.scale(-1, 1);
+				$preview_cContext.translate(-$preview_canvas.width, 0);
 				$preview_cContext.fillStyle = "white";
 				$preview_cContext.textBaseline = 'top'; 
 				$preview_cContext.textAlign = 'center';
-				$preview_cContext.scale(-1, 1);
-				$preview_cContext.translate(-$preview_canvas.width, 0);
-			//$preview_cContext.font = '80px Arizonia';
+				$preview_cContext.font = '80px Arizonia';
 				var petsName = prompt(
 					'[!WIP!] What is your pets name?\n' + 
 					'This text will be put at the bottom of the image. ' + 
