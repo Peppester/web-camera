@@ -22,7 +22,7 @@ $(function() {
 			alert(message);
 			$('.imgfilteroption').hide();
 		} 
-		//$preview_canvas.dir = 'rtl';
+		$preview_canvas.dir = 'rtl';
 		var link = document.createElement('link');
 		link.rel = 'stylesheet';
 		link.href = 'https://fonts.googleapis.com/css?family=Arizonia';
