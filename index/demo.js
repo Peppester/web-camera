@@ -78,7 +78,7 @@ $(function() {
 					$preview_cContext.clearRect(0, 0, $preview_canvas.width, $preview_canvas.height);
 				});
 				oReq.responseType = 'blob';
-				oReq.open("GET", $preview_canvas.toDataURL('image/png', 1), true);
+				oReq.open("GET", $preview_canvas.toDataURL('image/jpg'), true);
 				oReq.send()
 			}
 			$cancel_button.onclick = function(){
