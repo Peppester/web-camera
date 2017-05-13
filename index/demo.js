@@ -44,16 +44,14 @@ $(function() {
 		var take_snapshots = function(count) {
 			$preview_canvas.width = camera.video.videoWidth;
 			$preview_canvas.height = camera.video.videoHeight;
-			$preview_cContext.translate($preview_canvas.width, 0);
-			$preview_cContext.scale(-1, 1);
-			$preview_cContext.drawImage(camera.video, 0, 0);
-			//$preview_cContext.font = '80px Arizonia';
-			/*$preview_canvas.src = $preview_canvas.toDataURL('image/png');*/
+			/*$preview_cContext.translate($preview_canvas.width, 0);
+			$preview_cContext.scale(-1, 1);*/
+			$preview_cContext.drawImage(camera.video, $preview_canvas.width, 0, -$preview_canvas.width, $preview_canvas.height);
 			$preview_box.className = "";
 			$download_button.onclick = function(){
 				$('#loading').css('display', 'block');
-				$preview_cContext.scale(-1, 1);
-				$preview_cContext.translate(-$preview_canvas.width, 0);
+				/*$preview_cContext.scale(-1, 1);
+				$preview_cContext.translate(-$preview_canvas.width, 0);*/
 				$preview_cContext.fillStyle = "white";
 				$preview_cContext.textBaseline = 'top'; 
 				$preview_cContext.textAlign = 'center';
@@ -63,12 +61,12 @@ $(function() {
 					'This text will be put at the bottom of the image. ' + 
 					'If you wish for your pet to remain anonymous '+
 					'(which it totally fine), then leave this box empty.');
-				$preview_cContext.fillText(petsName.trim(), $preview_canvas.width/2, 120);
 				$preview_cContext.filter = $preview_canvas.style.filter;
 				$preview_cContext.drawImage( $preview_canvas, 0, 0 );
-				$preview_cContext.translate($preview_canvas.width, 0);
-				$preview_cContext.scale(-1, 1);
 				$preview_cContext.fillText(petsName.trim(), $preview_canvas.width/2, 120);
+				/*$preview_cContext.translate($preview_canvas.width, 0);
+				$preview_cContext.scale(-1, 1);*/
+				//$preview_cContext.fillText(petsName.trim(), $preview_canvas.width/2, 120);
 				
 				$preview_canvas.toBlob(function(blob) {
 					$download_link.href = URL.createObjectURL( blob );
@@ -77,8 +75,8 @@ $(function() {
 					$download_link.click();
 					// free up memory & reset:
 					$preview_box.className = "hidden";
-					$preview_cContext.scale(-1, 1);
-					$preview_cContext.translate(-$preview_canvas.width, 0);
+					/*$preview_cContext.scale(-1, 1);
+					$preview_cContext.translate(-$preview_canvas.width, 0);*/
 					$preview_cContext.clearRect(0, 0, $preview_canvas.width, $preview_canvas.height);
 					setTimeout(function(){
 						$('#loading').css('display', 'none');
@@ -101,20 +99,6 @@ $(function() {
 				$preview_cContext.translate(-$preview_canvas.width, 0);
 				$preview_cContext.clearRect(0, 0, $preview_canvas.width, $preview_canvas.height);
 			}
-			/*if (JpegCamera.canvas_supported()) {
-				snapshot.get_canvas(add_snapshot);
-			}
-			else {
-				// <canvas> is not supported in this browser. We'll use anonymous
-				// graphic instead.
-				var image = document.createElement("img");
-				image.src = "no_canvas_photo.jpg";
-				setTimeout(function() {add_snapshot.call(snapshot, image)}, 1);
-			}
-
-			if (count > 1) {
-				setTimeout(function() {take_snapshots(count - 1);}, 500);
-			}*/
 		};
 
 		var add_snapshot = function(element) {
@@ -230,7 +214,6 @@ $(function() {
 			$('video').removeAttr('style');
 			$('video').css('pointer-events', 'none');
 			$("#take_snapshots").show();
-			$('#camera').removeAttr('style');
 
 			$("#camera_info").html(
 				"Camera resolution: " + info.video_width + "x" + info.video_height
