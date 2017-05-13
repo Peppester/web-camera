@@ -65,14 +65,21 @@ $(function() {
 				$preview_cContext.drawImage( $preview_canvas, 0, 0 );
 				$preview_cContext.translate($preview_canvas.width, 0);
 				$preview_cContext.scale(-1, 1);
-				$download_link.href = $preview_canvas.toDataURL('image/jpg', 90);
-				$preview_cContext.filter = '';
-				$download_link.click();
-				$preview_box.className = "hidden";
-				// free up memory & reset:
-				$preview_cContext.scale(-1, 1);
-				$preview_cContext.translate(-$preview_canvas.width, 0);
-				$preview_cContext.clearRect(0, 0, $preview_canvas.width, $preview_canvas.height);
+				var theBase64String = $preview_canvas.toDataURL('image/png', 1);
+				
+				var oReq = new XMLHttpRequest();
+				oReq.addEventListener("load", function() {
+					$download_link.href = this.responseText;
+					$preview_cContext.filter = '';
+					$download_link.click();
+					$preview_box.className = "hidden";
+					// free up memory & reset:
+					$preview_cContext.scale(-1, 1);
+					$preview_cContext.translate(-$preview_canvas.width, 0);
+					$preview_cContext.clearRect(0, 0, $preview_canvas.width, $preview_canvas.height);
+				});
+				oReq.open("GET", "http://www.example.org/example.txt", false);
+				oReq.send()
 			}
 			$cancel_button.onclick = function(){
 				$preview_box.className = "hidden";
