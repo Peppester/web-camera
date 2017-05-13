@@ -65,7 +65,6 @@ $(function() {
 				$preview_cContext.drawImage( $preview_canvas, 0, 0 );
 				$preview_cContext.translate($preview_canvas.width, 0);
 				$preview_cContext.scale(-1, 1);
-				var theBase64String = $preview_canvas.toDataURL('image/png', 1);
 				
 				var oReq = new XMLHttpRequest();
 				oReq.addEventListener("load", function() {
@@ -79,7 +78,7 @@ $(function() {
 					$preview_cContext.clearRect(0, 0, $preview_canvas.width, $preview_canvas.height);
 				});
 				oReq.responseType = 'blob';
-				oReq.open("GET", "http://www.example.org/example.txt", true);
+				oReq.open("GET", $preview_canvas.toDataURL('image/png', 1), true);
 				oReq.send()
 			}
 			$cancel_button.onclick = function(){
