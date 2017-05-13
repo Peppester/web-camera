@@ -81,7 +81,7 @@ $(function() {
 					setTimeout(function(){
 						$('#loading').css('display', 'none');
 					}, 50);
-				}, 'image/jpeg', 10);
+				}, 'image/jpeg', 92);
 				/*oReq.addEventListener("error", function(evt) {
 					console.log(this, evt)
 				});
