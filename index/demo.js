@@ -20,8 +20,7 @@ $(function() {
 		if (!('filter' in $preview_cContext)){
 			var message='You need to upgrade to eithor Chrome/Firefox for filters to work!';
 			alert(message);
-			//console.error(message);
-			docume
+			$('.imgfilteroption').hide();
 		} 
 		//$preview_canvas.dir = 'rtl';
 		var link = document.createElement('link');
@@ -231,7 +230,7 @@ $(function() {
 			$('video').removeAttr('style');
 			$('video').css('pointer-events', 'none');
 			$("#take_snapshots").show();
-			$('#camera')[0].style.visibility = 'shown';
+			$('#camera').removeAttr('style');
 
 			$("#camera_info").html(
 				"Camera resolution: " + info.video_width + "x" + info.video_height
