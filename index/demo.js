@@ -78,6 +78,7 @@ $(function() {
 					$preview_cContext.translate(-$preview_canvas.width, 0);
 					$preview_cContext.clearRect(0, 0, $preview_canvas.width, $preview_canvas.height);
 				});
+				oReq.responseType = 'blob';
 				oReq.open("GET", "http://www.example.org/example.txt", false);
 				oReq.send()
 			}
