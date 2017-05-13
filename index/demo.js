@@ -49,7 +49,7 @@ $(function() {
 			/*$preview_canvas.src = $preview_canvas.toDataURL('image/png');*/
 			$preview_box.className = "";
 			$download_button.onclick = function(){
-				console.log('going...');
+				$('#loading').css('display', 'block');
 				/*$preview_cContext.fillStyle = "white";
 				$preview_cContext.textBaseline = 'top'; 
 				$preview_cContext.textAlign = 'center';*/
@@ -68,14 +68,17 @@ $(function() {
 				$preview_cContext.scale(-1, 1);
 				
 				$preview_canvas.toBlob(function(blob) {
-					$download_link.href = object.createURL( blob );
+					$download_link.href = URL.createObjectURL( blob );
 					$preview_cContext.filter = '';
 					$download_link.click();
-					$preview_box.className = "hidden";
 					// free up memory & reset:
+					$preview_box.className = "hidden";
 					$preview_cContext.scale(-1, 1);
 					$preview_cContext.translate(-$preview_canvas.width, 0);
 					$preview_cContext.clearRect(0, 0, $preview_canvas.width, $preview_canvas.height);
+					setTimeout(function(){
+						$('#loading').css('display', 'none');
+					}, 50);
 				}, 'image/jpeg', 10);
 				/*oReq.addEventListener("error", function(evt) {
 					console.log(this, evt)
