@@ -55,6 +55,7 @@ $(function() {
 			$preview_cContext.translate(-$preview_canvas.width, 0);
 			//$preview_cContext.clearRect(0, 0, $preview_canvas.width, $preview_canvas.height);
 			$preview_cContext.putImageData(theImageData, 0, 0);
+			$($preview_box).fadeIn();
 			$preview_box.className = "";
 			$download_button.onclick = function(){
 				$('#loading').css('display', 'block');
@@ -81,7 +82,8 @@ $(function() {
 					$download_link.download = petsName;
 					$download_link.click();
 					// free up memory & reset:
-					$preview_box.className = "hidden";
+					//$preview_box.className = "hidden";
+					$($preview_box).fadeOut();
 					/*$preview_cContext.scale(-1, 1);
 					$preview_cContext.translate(-$preview_canvas.width, 0);*/
 					$preview_cContext.clearRect(0, 0, $preview_canvas.width, $preview_canvas.height);
@@ -100,7 +102,8 @@ $(function() {
 				oReq.send();*/
 			}
 			$cancel_button.onclick = function(){
-				$preview_box.className = "hidden";
+				//$preview_box.className = "hidden";
+				$($preview_box).fadeOut();
 				// free up memory & reset:
 				$preview_cContext.scale(-1, 1);
 				$preview_cContext.translate(-$preview_canvas.width, 0);
