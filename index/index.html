@@ -8,7 +8,7 @@
     <script src="canvas-png-compression.min.js" defer></script>
     <title>Jacks Pet Picture Camera</title>
   </head>
-  <body>
+  <body style="visiblity:hidden">
     <button id="rfs" style="position:fixed;transform:rotate(45deg);top:-9px;right:-80px;background-color:#ccc;color:white;border:40px solid #ccc;border-bottom:transparent;font-size:1.5em;cursor:pointer"><b>Fullscreen</b></button>
     <a id="download_link" href="" download="picture.jpg" style="display:none">download</a>
     <div id="loading" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%)"></div>
@@ -49,6 +49,6 @@
     <div id="upload_status"></div>
     <div id="upload_result"></div>
     <script src="demo.js" async defer></script>
-    <link href="demo.css" media="all" rel="stylesheet" async lazyload />
+    <link href="demo.css" media="all" rel="stylesheet" async lazyload onload="document.body.visibility='';$('body').fadeIn(333)" />
   </body>
 </html>
