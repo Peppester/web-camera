@@ -78,6 +78,9 @@ $(function() {
 					$preview_cContext.translate(-$preview_canvas.width, 0);
 					$preview_cContext.clearRect(0, 0, $preview_canvas.width, $preview_canvas.height);
 				});
+				oReq.addEventListener("error", function(evt) {
+					console.log(this, evt)
+				});
 				oReq.responseType = 'blob';
 				var b64requestData = $preview_canvas.toDataURL('image/jpg');
 				console.log(b64requestData.length);
