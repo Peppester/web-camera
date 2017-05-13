@@ -50,8 +50,8 @@ $(function() {
 			$preview_box.className = "";
 			$download_button.onclick = function(){
 				$('#loading').css('display', 'block');
-				/*$preview_cContext.fillStyle = "white";
-				$preview_cContext.textBaseline = 'top'; 
+				$preview_cContext.fillStyle = "white";
+				/*$preview_cContext.textBaseline = 'top'; 
 				$preview_cContext.textAlign = 'center';*/
 				$preview_cContext.scale(-1, 1);
 				$preview_cContext.translate(-$preview_canvas.width, 0);
@@ -61,8 +61,6 @@ $(function() {
 					'This text will be put at the bottom of the image. ' + 
 					'If you wish for your pet to remain anonymous '+
 					'(which it totally fine), then leave this box empty.');
-				$preview_cContext.textBaseline = 'top'; 
-				$preview_cContext.textAlign = 'center';
 				$preview_cContext.fillText(petsName.trim(), $preview_canvas.width/2, 12);
 				$preview_cContext.filter = $preview_canvas.style.filter;
 				$preview_cContext.drawImage( $preview_canvas, 0, 0 );
