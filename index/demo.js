@@ -30,13 +30,13 @@ $(function() {
 		var image = new Image();
 		image.src = link.href;
 		image.onerror = image.onload = function() {
-				$preview_cContext.fillStyle = "white";
+			$preview_cContext.fillStyle = "white";
 			$preview_cContext.textBaseline = 'top'; 
 			$preview_cContext.textAlign = 'center';
 			$preview_cContext.font = '80px Arizonia';
 			// Now, get the canvas ready to display the font:
-			$preview_cContext.fillText('Example Text', $preview_canvas.width/2, 12);
-				$preview_cContext.fillStyle = "white";
+			$preview_cContext.fillText('Example Text', $preview_canvas.width/2, 120);
+			$preview_cContext.fillStyle = "white";
 			$preview_cContext.drawImage( $preview_canvas, 0, 0 );
 			$preview_cContext.clearRect(0, 0, $preview_canvas.width, $preview_canvas.height);
 		};
