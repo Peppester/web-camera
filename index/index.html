@@ -4,12 +4,12 @@
     <link rel="icon" href="../favicon.jpg">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" defer></script>
     <!--<script src="../dist/jpeg_camera_with_dependencies.min.js" defer></script>-->
-    <script src="../dist/jpeg_camera_no_flash.min.js" defer onerror="document.getElementById('permissionNeeded').style.display='block'"></script>
+    <script src="../dist/jpeg_camera_no_flash.min.js" defer onerror="document.getElementById('permissionNeeded').style.display='initial'"></script>
     <script src="canvas-png-compression.min.js" defer></script>
     <title>Jacks Pet Picture Camera</title>
   </head>
   <body style="visiblity:hidden">
-    <button id="rfs" style="position:fixed;transform:rotate(45deg);top:-9px;right:-80px;background-color:#ccc;color:white;border:40px solid #ccc;border-bottom:transparent;font-size:1.5em;cursor:pointer"><b>Fullscreen</b></button>
+    <button id="rfs" style="position:fixed;transform:rotate(45deg);top:-9px;right:-80px;background-color:#ccc;color:white;border:40px solid #ccc;border-bottom:transparent;font-size:1.5em"><b>Fullscreen</b></button>
     <a id="download_link" href="" download="picture.jpg" style="display:none">download</a>
     <div id="loading" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%)"></div>
     <div id="preview" class="hidden">
@@ -28,7 +28,9 @@
         It's free.
       </div>
     </div><br />
-    <h1 id="permissionNeeded" style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%)"></h1>
+    <h1 id="permissionNeeded" style="position:fixed;display:none;color:#F00;background-color:#0FF;top:50%;left:50%;transform:translate(-50%,-50%);padding:1em;font-size:200%">
+      You need to allow this page to use the webcamera! To do this, click on the X-ed out camera icon in the search bar, and then click allow
+    </h1>
     <button id="show_stream" style="display:none">Show stream</button><br />
     <div id="snapshots" style="display:none"></div>
     
@@ -37,7 +39,7 @@
       <div class="imgfilteroption"><div style="margin-bottom.25em">Brightness</div><input id="brightness" type="range" min="50" max="150" value="100" step="2" /></div>
       <div class="stacked"><button id="take_snapshots">Take picture</button><button id="resetOptions">Reset Options</button></div>
       <div class="imgfilteroption"><div style="margin-bottom:.25em">Contrast</div><input id="contrast" type="range" min="75" max="125" value="100" /></div>
-      <div class="imgfilteroption"><div style="margin-bottom:.25em">Colorfulness</div><input id="saturation" type="range" min="50" max="150" value="100" step="2" /></div>
+      <div class="imgfilteroption"><div style="margin-bottom:.25em">Colorfulness</div><input id="saturation" type="range" min="75" max="175" value="100" step="2" /></div>
     </div>
     
     <button id="discard_snapshot" style="display:none">Discard snapshot</button>
@@ -49,6 +51,6 @@
     <div id="upload_status"></div>
     <div id="upload_result"></div>
     <script src="demo.js" async defer></script>
-    <link href="demo.css" media="all" rel="stylesheet" async lazyload onload="document.body.visibility='';$('body').fadeIn(750)" />
+    <link href="demo.css" media="all" rel="stylesheet" async lazyload onload="document.body.visibility='';$('body').hide();$('body').fadeIn(750)" />
   </body>
 </html>
