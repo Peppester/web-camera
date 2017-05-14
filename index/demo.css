@@ -53,8 +53,6 @@ button:not(#preview *), input, #loader {
 #camera {
   display: inline-block;
   background-color: transparent;
-  width: 250px;
-  height: 300px;
   margin: 0.5em;
 }
 
@@ -78,7 +76,6 @@ button:not(#preview *), input, #loader {
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   -o-box-sizing: border-box;
-  height: 100%;
   margin-left: 3px;
   border: 3px solid transparent;
 }
