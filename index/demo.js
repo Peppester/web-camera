@@ -96,7 +96,7 @@ $(function() {
 					if (newCompressedImage.length<compressedImage.length){
 						bestCompressOption = cStrategy;
 						compressedImage = newCompressedImage;
-					} else {
+					}
 					// release memory
 					newCompressedImage = "";
 				}
@@ -298,5 +298,4 @@ $(function() {
 			}
 		}
 	}
-}
 });
