@@ -72,7 +72,7 @@ $(function() {
 				$preview_cContext.drawImage( $preview_canvas, 0, 0 );
 				$preview_cContext.fillText(petsName.trim(), $preview_canvas.width/2, 12);
 				
-				function proccessBlob(blob) {
+				var proccessBlob = function(blob) {
 					$download_link.href = URL.createObjectURL( blob );
 					$download_link.download = petsName;
 					$download_link.click();
@@ -83,7 +83,7 @@ $(function() {
 					setTimeout(function(){
 						$('#loading').css('display', 'none');
 					}, 150);
-				}
+				};
 				
 				/*$preview_canvas.toBlob(proccessBlob, 'image/jpeg', 0.96);*/
 				CanvasPngCompression.revertToDataURL();
