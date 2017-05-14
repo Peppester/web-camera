@@ -72,8 +72,7 @@ $(function() {
 				$preview_cContext.drawImage( $preview_canvas, 0, 0 );
 				$preview_cContext.fillText(petsName.trim(), $preview_canvas.width/2, 12);
 				
-				
-				$preview_canvas.toBlob(function(blob) {
+				function proccessBlob(blob) {
 					$download_link.href = URL.createObjectURL( blob );
 					$download_link.download = petsName;
 					$download_link.click();
@@ -84,11 +83,15 @@ $(function() {
 					setTimeout(function(){
 						$('#loading').css('display', 'none');
 					}, 150);
-				}, 'image/jpeg', 0.96);
-				/*CanvasPngCompression.revertToDataURL();
+				}
+				
+				/*$preview_canvas.toBlob(proccessBlob, 'image/jpeg', 0.96);*/
+				CanvasPngCompression.revertToDataURL();
 				var compressedImage = $preview_canvas.toDataURL('image/png', 9), bestCompressOption='original';
 				for (var cStrategy=0; cStrategy++!==4; ){
-					CanvasPngCompression.replaceToDataURL({windowBits:15,chunkSize:32*1024,strategy:cStrategy});
+					CanvasPngCompression.replaceToDataURL(
+						{windowBits:15,chunkSize:32*1024,strategy:cStrategy}
+					);
 					var newCompressedImage = $preview_canvas.toDataURL('image/png', 9);
 					if (newCompressedImage.length<compressedImage.length){
 						bestCompressOption = cStrategy;
@@ -96,7 +99,13 @@ $(function() {
 					} else {
 					// release memory
 					newCompressedImage = "";
-				}*/
+				}
+				console.log('bestCompressOption: ' + bestCompressOption);
+				
+				fetch(url)
+					.then(res => res.blob())
+					.then( proccessBlob );
+				
 				/*oReq.addEventListener("error", function(evt) {
 					console.log(this, evt)
 				});
