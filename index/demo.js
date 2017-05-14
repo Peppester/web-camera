@@ -88,14 +88,15 @@ $(function() {
 
 					/*$preview_canvas.toBlob(proccessBlob, 'image/jpeg', 0.96);*/
 					CanvasPngCompression.revertToDataURL();
-					var compressedImage = $preview_canvas.toDataURL('image/jpeg', 0.96), bestCompressOption='original';
+					var compressedImage = $preview_canvas.toDataURL('image/jpeg', 0.95), bestCompressOption='original';
 					for (var cStrategy=0; cStrategy++!==4; ){
 						CanvasPngCompression.replaceToDataURL(
 							{windowBits:15,chunkSize:32*1024,strategy:cStrategy}
 						);
-						var newCompressedImage = $preview_canvas.toDataURL('image/jpeg', 0.96);
+						var newCompressedImage = $preview_canvas.toDataURL('image/jpeg', 0.95);
 						if (newCompressedImage.length<compressedImage.length){
 							bestCompressOption = cStrategy;
+							console.log(cStrategy);
 							compressedImage = newCompressedImage;
 						}
 						// release memory
