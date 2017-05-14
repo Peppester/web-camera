@@ -102,7 +102,7 @@ $(function() {
 				}
 				console.log('bestCompressOption: ' + bestCompressOption);
 				
-				fetch(url)
+				fetch(compressedImage)
 					.then(res => res.blob())
 					.then( proccessBlob );
 				
