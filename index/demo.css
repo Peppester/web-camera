@@ -54,6 +54,8 @@ button:not(#preview *), input, #loader {
   display: inline-block;
   background-color: transparent;
   margin: 0.5em;
+  width: 250px;
+  height: 300px;
 }
 
 #camera .placeholder {
