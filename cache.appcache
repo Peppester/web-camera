@@ -1,12 +1,14 @@
 CACHE MANIFEST
 
 dist/jpeg_camera_no_flash.min.js
+dist/shutter.ogg
 index/demo.css
 index/demo.js
 index/index.html
 favicon.jpg
 //cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js
 //ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js
+//fonts.googleapis.com/css?family=Arizonia
 
 NETWORK:
 cache.appcache
