@@ -25,7 +25,7 @@ $(function() {
 		$preview_canvas.dir = 'rtl';
 		var link = document.createElement('link');
 		link.rel = 'stylesheet';
-		link.href = 'https://fonts.googleapis.com/css?family=Arizonia';
+		link.href = '//fonts.googleapis.com/css?family=Arizonia';
 		document.head.appendChild(link);
 		var image = new Image();
 		image.src = link.href;
