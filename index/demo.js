@@ -59,62 +59,64 @@ $(function() {
 			$preview_box.className = "";
 			$download_button.onclick = function(){
 				$('#loading').css('display', 'block');
-				$preview_cContext.fillStyle = "white";
-				$preview_cContext.textBaseline = 'top'; 
-				$preview_cContext.textAlign = 'center';
-				$preview_cContext.font = '80px Arizonia';
-				var petsName = prompt(
-					'What is your pets name?\n' + 
-					'This text will be put at the bottom of the image. ' + 
-					'If you wish for your pet to remain anonymous '+
-					'(which it totally fine), then leave this box empty.');
-				$preview_cContext.filter = $preview_canvas.style.filter;
-				$preview_cContext.drawImage( $preview_canvas, 0, 0 );
-				$preview_cContext.fillText(petsName.trim(), $preview_canvas.width/2, 12);
-				
-				var proccessBlob = function(blob) {
-					$download_link.href = URL.createObjectURL( blob );
-					$download_link.download = petsName;
-					$download_link.click();
-					// free up memory & reset:
-					//$preview_box.className = "hidden";
-					$($preview_box).fadeOut(200);
-					$preview_cContext.clearRect(0, 0, $preview_canvas.width, $preview_canvas.height);
-					setTimeout(function(){
-						$('#loading').css('display', 'none');
-					}, 150);
-				};
-				
-				/*$preview_canvas.toBlob(proccessBlob, 'image/jpeg', 0.96);*/
-				CanvasPngCompression.revertToDataURL();
-				var compressedImage = $preview_canvas.toDataURL('image/png', 9), bestCompressOption='original';
-				for (var cStrategy=0; cStrategy++!==4; ){
-					CanvasPngCompression.replaceToDataURL(
-						{windowBits:15,chunkSize:32*1024,strategy:cStrategy}
-					);
-					var newCompressedImage = $preview_canvas.toDataURL('image/png', 9);
-					if (newCompressedImage.length<compressedImage.length){
-						bestCompressOption = cStrategy;
-						compressedImage = newCompressedImage;
+				setTimeout(function(){
+					$preview_cContext.fillStyle = "white";
+					$preview_cContext.textBaseline = 'top'; 
+					$preview_cContext.textAlign = 'center';
+					$preview_cContext.font = '80px Arizonia';
+					var petsName = prompt(
+						'What is your pets name?\n' + 
+						'This text will be put at the bottom of the image. ' + 
+						'If you wish for your pet to remain anonymous '+
+						'(which it totally fine), then leave this box empty.');
+					$preview_cContext.filter = $preview_canvas.style.filter;
+					$preview_cContext.drawImage( $preview_canvas, 0, 0 );
+					$preview_cContext.fillText(petsName.trim(), $preview_canvas.width/2, 12);
+
+					var proccessBlob = function(blob) {
+						$download_link.href = URL.createObjectURL( blob );
+						$download_link.download = petsName;
+						$download_link.click();
+						// free up memory & reset:
+						//$preview_box.className = "hidden";
+						$($preview_box).fadeOut(200);
+						$preview_cContext.clearRect(0, 0, $preview_canvas.width, $preview_canvas.height);
+						setTimeout(function(){
+							$('#loading').css('display', 'none');
+						}, 150);
+					};
+
+					/*$preview_canvas.toBlob(proccessBlob, 'image/jpeg', 0.96);*/
+					CanvasPngCompression.revertToDataURL();
+					var compressedImage = $preview_canvas.toDataURL('image/png', 9), bestCompressOption='original';
+					for (var cStrategy=0; cStrategy++!==4; ){
+						CanvasPngCompression.replaceToDataURL(
+							{windowBits:15,chunkSize:32*1024,strategy:cStrategy}
+						);
+						var newCompressedImage = $preview_canvas.toDataURL('image/png', 9);
+						if (newCompressedImage.length<compressedImage.length){
+							bestCompressOption = cStrategy;
+							compressedImage = newCompressedImage;
+						}
+						// release memory
+						newCompressedImage = "";
 					}
-					// release memory
-					newCompressedImage = "";
-				}
-				console.log('bestCompressOption: ' + bestCompressOption);
-				
-				fetch(compressedImage)
-					.then(res => res.blob())
-					.then( proccessBlob );
-				
-				/*oReq.addEventListener("error", function(evt) {
-					console.log(this, evt)
-				});
-				oReq.responseType = 'blob';
-				var b64requestData = $preview_canvas.toDataURL('image/jpg');
-				console.log(b64requestData.length);
-				oReq.open("GET", b64requestData, true);
-				oReq.responseType = 'blob';
-				oReq.send();*/
+					console.log('bestCompressOption: ' + bestCompressOption);
+
+					fetch(compressedImage)
+						.then(res => res.blob())
+						.then( proccessBlob );
+
+					/*oReq.addEventListener("error", function(evt) {
+						console.log(this, evt)
+					});
+					oReq.responseType = 'blob';
+					var b64requestData = $preview_canvas.toDataURL('image/jpg');
+					console.log(b64requestData.length);
+					oReq.open("GET", b64requestData, true);
+					oReq.responseType = 'blob';
+					oReq.send();*/
+				}, 50); // Give the loading message time to appear
 			}
 			$cancel_button.onclick = function(){
 				//$preview_box.className = "hidden";
