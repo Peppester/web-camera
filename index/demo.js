@@ -16,6 +16,8 @@ $(function() {
 			$download_button = $('#download_picture')[0],
 			$cancel_button = $('#cancel_download')[0],
 			$download_link = $('#download_link')[0];
+		$preview_cContext.imageSmoothingEnabled = false;
+		$preview_cContext.imageSmoothingQuality = "high";
 		
 		if (!('filter' in $preview_cContext)){
 			var message='You need to upgrade to eithor Chrome/Firefox for filters to work!';
@@ -47,7 +49,9 @@ $(function() {
 			$preview_cContext.filter = '';
 			$preview_cContext.translate($preview_canvas.width, 0);
 			$preview_cContext.scale(-1, 1);
+			$preview_cContext.imageSmoothingEnabled = true;
 			$preview_cContext.drawImage(camera.video, 0, 0);
+			$preview_cContext.imageSmoothingEnabled = false;
 			var theImageData = $preview_cContext.getImageData(
 				0, 0, $preview_canvas.width, $preview_canvas.height
 			);
