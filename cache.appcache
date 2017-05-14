@@ -1,9 +1,11 @@
 CACHE:
-dist/jpeg_camera_with_dependencies.min.js
+dist/jpeg_camera_no_flash.min.js
 index/demo.css
 index/demo.js
 index/index.html
-favicon.ico
+favicon.jpg
+//cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js
+//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js
 
 NETWORK:
 cache.appcache
