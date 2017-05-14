@@ -58,7 +58,7 @@ $(function() {
 			$($preview_box).fadeIn(250);
 			$preview_box.className = "";
 			$download_button.onclick = function(){
-				$('#loading').css('display', 'block');
+				$('#loading')[0].style.display = 'block';
 				setTimeout(function(){
 					$preview_cContext.fillStyle = "white";
 					$preview_cContext.textBaseline = 'top'; 
@@ -88,12 +88,12 @@ $(function() {
 
 					/*$preview_canvas.toBlob(proccessBlob, 'image/jpeg', 0.96);*/
 					CanvasPngCompression.revertToDataURL();
-					var compressedImage = $preview_canvas.toDataURL('image/png', 9), bestCompressOption='original';
+					var compressedImage = $preview_canvas.toDataURL('image/jpeg', 0.96), bestCompressOption='original';
 					for (var cStrategy=0; cStrategy++!==4; ){
 						CanvasPngCompression.replaceToDataURL(
 							{windowBits:15,chunkSize:32*1024,strategy:cStrategy}
 						);
-						var newCompressedImage = $preview_canvas.toDataURL('image/png', 9);
+						var newCompressedImage = $preview_canvas.toDataURL('image/jpeg', 0.96);
 						if (newCompressedImage.length<compressedImage.length){
 							bestCompressOption = cStrategy;
 							compressedImage = newCompressedImage;
@@ -116,7 +116,7 @@ $(function() {
 					oReq.open("GET", b64requestData, true);
 					oReq.responseType = 'blob';
 					oReq.send();*/
-				}, 50); // Give the loading message time to appear
+				}, 150); // Give the loading message time to appear
 			}
 			$cancel_button.onclick = function(){
 				//$preview_box.className = "hidden";
