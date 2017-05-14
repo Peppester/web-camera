@@ -65,7 +65,8 @@ $(function() {
 				$preview_cContext.font = '80px Arizonia';
 				var petsName = prompt(
 					'What is your pets name?\n' + 
-					'This text will be put at the bottom of the image. ' + 
+					'This text will be put at the top of the image ' + 
+					'in a fancy font. '
 					'If you wish for your pet to remain anonymous '+
 					'(which it totally fine), then leave this box empty.') || "";
 				setTimeout(function(){
