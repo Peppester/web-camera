@@ -59,16 +59,16 @@ $(function() {
 			$preview_box.className = "";
 			$download_button.onclick = function(){
 				$('#loading')[0].style.display = 'block';
+				$preview_cContext.fillStyle = "white";
+				$preview_cContext.textBaseline = 'top'; 
+				$preview_cContext.textAlign = 'center';
+				$preview_cContext.font = '80px Arizonia';
+				var petsName = prompt(
+					'What is your pets name?\n' + 
+					'This text will be put at the bottom of the image. ' + 
+					'If you wish for your pet to remain anonymous '+
+					'(which it totally fine), then leave this box empty.') || "";
 				setTimeout(function(){
-					$preview_cContext.fillStyle = "white";
-					$preview_cContext.textBaseline = 'top'; 
-					$preview_cContext.textAlign = 'center';
-					$preview_cContext.font = '80px Arizonia';
-					var petsName = prompt(
-						'What is your pets name?\n' + 
-						'This text will be put at the bottom of the image. ' + 
-						'If you wish for your pet to remain anonymous '+
-						'(which it totally fine), then leave this box empty.');
 					$preview_cContext.filter = $preview_canvas.style.filter;
 					$preview_cContext.drawImage( $preview_canvas, 0, 0 );
 					$preview_cContext.fillText(petsName.trim(), $preview_canvas.width/2, 12);
@@ -92,7 +92,7 @@ $(function() {
 						.then(res => res.blob())
 						.then( proccessBlob );
 
-				}, 50); // Give the loading message time to appear
+				}, 75); // Give the loading message time to appear
 			}
 			$cancel_button.onclick = function(){
 				//$preview_box.className = "hidden";
