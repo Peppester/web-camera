@@ -86,38 +86,13 @@ $(function() {
 						}, 150);
 					};
 
-					/*$preview_canvas.toBlob(proccessBlob, 'image/jpeg', 0.96);*/
-					CanvasPngCompression.revertToDataURL();
-					var compressedImage = $preview_canvas.toDataURL('image/jpeg', 0.95), bestCompressOption='original';
-					for (var cStrategy=0; cStrategy++!==4; ){
-						CanvasPngCompression.replaceToDataURL(
-							{windowBits:15,chunkSize:32*1024,strategy:cStrategy}
-						);
-						var newCompressedImage = $preview_canvas.toDataURL('image/jpeg', 0.95);
-						if (newCompressedImage.length<compressedImage.length){
-							bestCompressOption = cStrategy;
-							console.log(cStrategy);
-							compressedImage = newCompressedImage;
-						}
-						// release memory
-						newCompressedImage = "";
-					}
-					console.log('bestCompressOption: ' + bestCompressOption);
+					//$preview_canvas.toBlob(proccessBlob, 'image/jpeg', 0.96);
 
-					fetch(compressedImage)
+					fetch($preview_canvas.toDataURL('image/jpeg', 0.95))
 						.then(res => res.blob())
 						.then( proccessBlob );
 
-					/*oReq.addEventListener("error", function(evt) {
-						console.log(this, evt)
-					});
-					oReq.responseType = 'blob';
-					var b64requestData = $preview_canvas.toDataURL('image/jpg');
-					console.log(b64requestData.length);
-					oReq.open("GET", b64requestData, true);
-					oReq.responseType = 'blob';
-					oReq.send();*/
-				}, 150); // Give the loading message time to appear
+				}, 50); // Give the loading message time to appear
 			}
 			$cancel_button.onclick = function(){
 				//$preview_box.className = "hidden";
