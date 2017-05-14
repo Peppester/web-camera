@@ -10,7 +10,6 @@ favicon.jpg
 //ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js
 //fonts.googleapis.com/css?family=Arizonia
 //fonts.gstatic.com/s/arizonia/v6/PwrsyFTYH2Wmsvpn0dx4s_esZW2xOQ-xsNqO47m55DA.woff2
-*
 
 NETWORK:
 cache.appcache
