@@ -25,6 +25,10 @@ html, body {
   margin: auto;
   z-index: -1;
 }
+canvas {
+  left: 50% !important;
+  transform: translateX(-50%);
+}
 video {
   transform: scaleX(-1);
   pointer-events: none;
