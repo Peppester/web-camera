@@ -21,17 +21,14 @@ html, body {
   max-height: 100%;
   min-width: 100vmin;
   top: 0; bottom: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   margin: auto;
   z-index: -1;
-}
-canvas {
-  left: 50% !important;
-  transform: translateX(-50%);
+  pointer-events: none;
 }
 video {
   transform: scaleX(-1);
-  pointer-events: none;
 }
 #preview *:not(canvas) {
   z-index: 300;
