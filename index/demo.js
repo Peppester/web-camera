@@ -210,7 +210,7 @@ $(function() {
 			if (performance.now()>((window.lastclick||0)+50))
 				take_snapshots(1);
 		};
-		$("#take_snapshots,body").on('touchstart', takePic);
+		$("#take_snapshots,body").on('touchstart', takePic)
 			.click(	takePic );
 		$("#snapshots").on("click", ".item", select_snapshot);
 		$("#upload_snapshot").click(upload_snapshot);
