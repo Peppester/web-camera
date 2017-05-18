@@ -9,9 +9,9 @@
     <title>Jacks Pet Picture Camera</title>
   </head>
   <body style="visiblity:hidden">
-    <button id="rfs" style="position:fixed;transform:rotate(45deg);top:-9px;right:-80px;background-color:#ccc;color:white;border:40px solid #ccc;border-bottom:transparent;font-size:1.5em"><b>Fullscreen</b></button>
+    <button id="rfs"><b>Fullscreen</b></button>
     <a id="download_link" href="" download="picture.jpg" style="display:none">download</a>
-    <div id="loading" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:99999;color:red;font-family:monospace;font-size:7em">LOADING...</div>
+    <div id="loading">LOADING...</div>
     <div id="preview" class="hidden">
       <canvas id="preview_canvas"></canvas>
       <button id="download_picture">Download Picture</button>
@@ -28,11 +28,11 @@
         It's free.
       </div>
     </div><br />
-    <h1 id="permissionNeeded" style="position:fixed;display:none;color:#F00;background-color:#0FF;top:50%;left:50%;transform:translate(-50%,-50%);padding:1em;font-size:200%">
+    <h1 id="permissionNeeded">
       You need to allow this page to use the webcamera! To do this, click on the X-ed out camera icon in the search bar, and then click allow
     </h1>
-    <button id="show_stream" style="display:none">Show stream</button><br />
-    <div id="snapshots" style="display:none"></div>
+    <!--<button id="show_stream" style="display:none">Show stream</button><br />
+    <div id="snapshots" style="display:none"></div>-->
     
     <div class="bottombar"> 
       <div class="imgfilteroption"><div style="margin-bottom:.25em">Sepia</div><input id="sepia" type="range" min="0" max="12.5" value="0" step="0.5" /></div>
@@ -51,7 +51,8 @@
     <div id="upload_status"></div>
     <div id="upload_result" lazyload prefetch preload></div>
     <script src="demo.js" async ></script>
-    <link href="demo.css" media="all" rel="stylesheet" async lazyload prefetch preload prerender onload="document.body.visibility='';$('body').hide();$('body').fadeIn(750)" />
+    <link href="demo.css" media="all" rel="stylesheet" async lazyload prefetch preload prerender
+          onload="document.body.visibility='';$('body').hide();$('body').fadeIn(750)" />
     <script src="//cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js" async prefetch preload prerender></script>
   </body>
 </html>
