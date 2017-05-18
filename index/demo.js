@@ -206,7 +206,7 @@ $(function() {
 			$("#show_stream").hide();
 		};
 
-		$("#take_snapshots,canvas").on('touchstart', function() {take_snapshots(1);})
+		$("#take_snapshots,body").on('touchstart', function() {take_snapshots(1);})
 			.click(	function() {take_snapshots(1);});
 		$("#snapshots").on("click", ".item", select_snapshot);
 		$("#upload_snapshot").click(upload_snapshot);
