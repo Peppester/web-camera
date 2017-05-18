@@ -144,3 +144,38 @@ button, #upload_status, #upload_result, #loader {
   visibility: hidden;
   display: none;
 }
+#rfs {
+  position:fixed;
+  transform:rotate(45deg);
+  top:-9px;
+  right:-80px;
+  background-color:#ccc;
+  color:white;
+  border:40px solid #ccc;
+  border-bottom:transparent;
+  font-size:1.5em
+}
+#loading {
+  display:none;
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  z-index:99999;
+  color:red;
+  font-family:monospace;
+  font-size:7em
+}
+#permissionNeeded {
+  position:fixed;
+  display:none;
+  color:#F00;
+  background-color:#0FF;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  padding:1em;
+  font-size:200%
+}
+
+
