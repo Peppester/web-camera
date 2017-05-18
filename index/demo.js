@@ -49,9 +49,9 @@ $(function() {
 			$preview_cContext.filter = '';
 			$preview_cContext.translate($preview_canvas.width, 0);
 			$preview_cContext.scale(-1, 1);
-			//$preview_cContext.imageSmoothingEnabled = true;
+			$preview_cContext.imageSmoothingEnabled = true;
 			$preview_cContext.drawImage(camera.video, 0, 0);
-			//$preview_cContext.imageSmoothingEnabled = false;
+			$preview_cContext.imageSmoothingEnabled = false;
 			var theImageData = $preview_cContext.getImageData(
 				0, 0, $preview_canvas.width, $preview_canvas.height
 			);
@@ -206,7 +206,8 @@ $(function() {
 			$("#show_stream").hide();
 		};
 
-		$("#take_snapshots").click(function() {take_snapshots(1);});
+		$("#take_snapshots,canvas").on('touchstart', function() {take_snapshots(1);})
+			.click(	function() {take_snapshots(1);});
 		$("#snapshots").on("click", ".item", select_snapshot);
 		$("#upload_snapshot").click(upload_snapshot);
 		$("#discard_snapshot").click(discard_snapshot);
