@@ -285,7 +285,7 @@ $(function() {
 				$('#rfs').css('cursor', 'pointer');
 			}
 		}
-		$('*:not(body)').click(function(){
+		$('*:not(body)').click(function(evt){
 			evt.stopPropagation();
 			window.lastclick = performance.now();
 		})
