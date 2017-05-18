@@ -49,9 +49,9 @@
 
     <img id="loader" style="display:none">
     <div id="upload_status"></div>
-    <div id="upload_result"></div>
-    <script src="demo.js" async></script>
-    <link href="demo.css" media="all" rel="stylesheet" async lazyload onload="document.body.visibility='';$('body').hide();$('body').fadeIn(750)" />
-    <script src="//cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js" asyn></script>
+    <div id="upload_result" lazyload prefetch preload></div>
+    <script src="demo.js" async ></script>
+    <link href="demo.css" media="all" rel="stylesheet" async lazyload prefetch preload prerender onload="document.body.visibility='';$('body').hide();$('body').fadeIn(750)" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js" async prefetch preload prerender></script>
   </body>
 </html>
