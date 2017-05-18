@@ -206,8 +206,12 @@ $(function() {
 			$("#show_stream").hide();
 		};
 
-		$("#take_snapshots,body").on('touchstart', function() {take_snapshots(1);})
-			.click(	function() {take_snapshots(1);});
+		function takePic(evt){
+			if (performance.now()>((window.lastclick||0)+50))
+				take_snapshots(1);
+		};
+		$("#take_snapshots,body").on('touchstart', takePic);
+			.click(	takePic );
 		$("#snapshots").on("click", ".item", select_snapshot);
 		$("#upload_snapshot").click(upload_snapshot);
 		$("#discard_snapshot").click(discard_snapshot);
@@ -281,5 +285,9 @@ $(function() {
 				$('#rfs').css('cursor', 'pointer');
 			}
 		}
+		$('*:not(body)').click(funciton(){
+			evt.stopPropagation();
+			window.lastclick = performance.now();
+		})
 	}
 });
